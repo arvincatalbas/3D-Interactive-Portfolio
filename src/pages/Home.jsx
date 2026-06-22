@@ -15,7 +15,7 @@ export function Home() {
       <div className="overlay-card glass">
         <span className="badge">Available for Projects & Roles</span>
         <h1>Hi, I'm <span className="highlight">Arvin Catalbas</span></h1>
-        <h3>IT Graduate, SysAdmin & Network Support</h3>
+        <h3>I'm a Freshgraduate from Sorsogon State University - Bulan Campus</h3>
         
         <p className="bio">
           Driven and detail-oriented Information Technology graduate specializing in network infrastructure, device configuration, and software development. Certified in Electrical Installation & Maintenance (EIM NCII).

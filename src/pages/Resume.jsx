@@ -55,8 +55,8 @@ export function Resume() {
             <FileText className="panel-icon" size={24} />
             <h2>Interactive Resume</h2>
           </div>
-          <a href="/resume.pdf" download className="btn btn-download btn-secondary">
-            <Download size={16} /> PDF Copy
+          <a href="/RESUME v.3.1.docx.pdf" target="_blank" rel="noreferrer" className="btn btn-download btn-secondary">
+            <FileText size={16} /> View Resume
           </a>
         </div>
 
