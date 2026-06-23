@@ -72,8 +72,8 @@ html, body, #root {
 /* Base Glass Card */
 .glass {
   background: var(--bg-panel);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border-glass);
   border-radius: 16px;
   box-shadow: var(--shadow-main);
@@ -271,8 +271,8 @@ h4 {
 .nav-container {
   display: flex;
   background: rgba(14, 15, 20, 0.75);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--border-glass);
   border-radius: 9999px;
   padding: 6px 12px;
@@ -430,11 +430,29 @@ h4 {
   border-radius: 3px;
 }
 
-.cert-zoom {
-  color: var(--text-muted);
+.cert-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
-.cert-card:hover .cert-zoom {
+.cert-action-btn {
+  color: var(--text-muted);
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.cert-action-btn:hover {
+  color: var(--primary);
+  transform: scale(1.25);
+}
+
+.cert-card:hover .cert-action-btn {
+  color: var(--text-secondary);
+}
+
+.cert-card:hover .cert-action-btn:hover {
   color: var(--primary);
 }
 
@@ -920,6 +938,7 @@ h4 {
   padding: 40px;
   box-sizing: border-box;
   transform: scale(1.0); /* matches R3F scale factors */
+  -webkit-user-select: none;
   user-select: none;
 }
 

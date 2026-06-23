@@ -5,14 +5,14 @@ const experience = [
   {
     id: 1,
     role: 'Network/IT Product Associate (OJT)',
-    company: 'Enterprise Internship Training',
+    company: 'Quanby Solutions Inc.',
     period: 'OJT Intern',
     details: 'Proven hands-on capability in deploying Local Area Networks (LAN), CCTV configurations, device setups, and structural IT costing systems. Managed IT procurement tracking, product inventory sorting, and generated technical client brochures.'
   },
   {
     id: 2,
-    role: 'EIM Work Immersion Intern',
-    company: 'Electrical & Maintenance Immersion',
+    role: 'EIM Work Immersion',
+    company: 'SORECO II',
     period: 'Immersion Intern',
     details: 'Conducted electrical wiring installation, circuit maintenance, hardware assembly/disassembly, and preventive hardware/software maintenance.'
   }
@@ -27,7 +27,7 @@ const education = [
   },
   {
     id: 2,
-    degree: 'Technical & Vocational Education (EIM)',
+    degree: 'Technical Vocational Livelihood (EIM)',
     school: 'Barcelona National Comprehensive High School',
     period: 'Secondary'
   }
@@ -37,7 +37,7 @@ const skills = [
   { name: 'Networking & Infrastructure (TCP/IP, Cisco, Cabling)', level: 92 },
   { name: 'Operating Systems (Windows, Linux CLI, Admin)', level: 88 },
   { name: 'Programming (JS/React Native, Python, SQL)', level: 78 },
-  { name: 'Electrical & Hardware Assembly (NCII Certified)', level: 90 }
+  { name: 'Electrical Installation & Maintenance (NCII Certified)', level: 90 }
 ];
 
 export function Resume() {

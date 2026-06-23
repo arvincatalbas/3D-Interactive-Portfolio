@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Award, ShieldCheck, X, ZoomIn } from 'lucide-react';
+import { motion, AnimatePresence, color } from 'framer-motion';
+import { Award, ShieldCheck, X, ZoomIn, Eye } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const certificates = [
@@ -9,8 +9,9 @@ const certificates = [
     title: 'Electrical Installation & Maintenance NCII',
     issuer: 'TESDA (National Certificate)',
     date: 'Certified',
-    credentialId: 'EIM-NCII-TESDA-NC',
-    color: '#ffaa00'
+    credentialId: '17056202009445',
+    color: '#ffaa00',
+    pdfUrl: '/EIM NCll.pdf'
   },
   {
     id: 2,
@@ -18,15 +19,17 @@ const certificates = [
     issuer: 'Cisco Networking Academy',
     date: 'Course Certified',
     credentialId: 'CISCO-JS-ESS1',
-    color: '#00e5ff'
+    color: '#00e5ff',
+    pdfUrl: '/JavaScript_Essentials_1_certificate_arvin9999990-gmail-com_925cbfb1-7b89-4611-94a7-4a9246ac0080.pdf'
   },
   {
     id: 3,
     title: 'Claude Code in Action',
-    issuer: 'Apply AI Platform',
+    issuer: 'Antrophic',
     date: 'Certified',
     credentialId: 'CLAUDE-ACTION-101',
-    color: '#ff007f'
+    color: '#ff007f',
+    pdfUrl: '/certificate-eqyf6r2yd873-1775453081.pdf'
   },
   {
     id: 4,
@@ -34,7 +37,8 @@ const certificates = [
     issuer: 'Cisco Networking Academy',
     date: 'Course Certified',
     credentialId: 'CISCO-PKT-TRACER',
-    color: '#a855f7'
+    color: '#a855f7',
+    pdfUrl: '/Getting_Started_with_Cisco_Packet_Tracer_certificate_arvin9999990-gmail-com_e0559a8c-4f7f-4dc0-b058-05610f19ede9.pdf'
   },
   {
     id: 5,
@@ -42,15 +46,53 @@ const certificates = [
     issuer: 'Cisco Networking Academy',
     date: 'Course certified',
     credentialId: 'CISCO-APPLY-AI',
-    color: '#3476a6'
+    color: '#00ff736e',
+    pdfUrl: '/Apply_AI-_Update_Your_Resume_certificate_arvin9999990-gmail-com_1701a7a9-f551-4890-a8e1-7601b9e6a0d4.pdf'
   },
   {
     id: 6,
     title: 'OJT Certificate',
     issuer: 'Quanby Solutions Inc.',
-    date: 'Course certified',
+    date: 'Course Certified',
     credentialId: '##',
-    color: '#3476a6'
+    color: '#3476a6',
+    pdfUrl: '/OJT Certificate.pdf'
+  },
+  {
+    id: 7,
+    title: 'Claude 101',
+    issuer: 'Antrophic',
+    date: 'Course Certified',
+    credentialId: 'Claude-101',
+    color: '#04f8e8b9',
+    pdfUrl: '/certificate-aq4wbrdpreua-1776493635.pdf'
+  },
+  {
+    id: 8,
+    title: 'Network Basics',
+    issuer: 'Cisco Networking Academy',
+    date: 'Course Certified',
+    credentialId: 'CISCO-NET-BASICS',
+    color: '#ec0dc3c3',
+    pdfUrl: '/Networking_Basics_certificate_arvin9999990-gmail-com_4399dd47-a990-4af2-81fd-1a8f5129959d.pdf'
+  },
+  {
+    id: 9,
+    title: 'Work Immersion Certificate',
+    issuer: 'Sorrco II',
+    date: 'Course Certified',
+    credentialId: 'Work-immersion-EIM',
+    color: '#f6fbfbff',
+    pdfUrl: '/Work Immersion.pdf'
+  },
+  {
+    id: 10,
+    title: 'Degree Holder',
+    issuer: 'Sorsogon State University',
+    date: 'Course Certified',
+    credentialId: '8908185',
+    color: '#e27e0457',
+    pdfUrl: '/Diploma.pdf'
   }
 ];
 
@@ -98,8 +140,25 @@ export function Certificates() {
                 <p className="cert-issuer">{cert.issuer} • <span className="date">{cert.date}</span></p>
                 <code className="cert-id">ID: {cert.credentialId}</code>
               </div>
-              <div className="cert-zoom">
-                <ZoomIn size={16} />
+              <div className="cert-actions" onClick={(e) => e.stopPropagation()}>
+                <a
+                  href={cert.pdfUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cert-action-btn"
+                  title="View Certification PDF"
+                >
+                  <ZoomIn size={16} />
+                </a>
+                <a
+                  href={cert.pdfUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cert-action-btn"
+                  title="Open Certificate PDF"
+                >
+                  <Eye size={16} />
+                </a>
               </div>
             </motion.div>
           ))}
