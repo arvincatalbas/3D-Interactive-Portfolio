@@ -119,4 +119,18 @@ npm run build
 
 
 ## 🎨 The 3D Interactive Portfolio Output
-<img width="1920" height="1080" alt="Screenshot (1202)" src="https://github.com/user-attachments/assets/c4964d41-b9e3-4141-bbe1-10967a4d2594" />
+### Home
+<img width="1920" height="1080" alt="Screenshot (1202)" src="https://github.com/user-attachments/assets/d3870870-94db-4dc8-bd99-8d4ab359c5e5" />
+
+### Project
+<img width="1920" height="1080" alt="Screenshot (1203)" src="https://github.com/user-attachments/assets/24ed7d4d-f88d-4288-8dc3-c55c65b5e0e8" />
+
+### Certificates
+<img width="1920" height="1080" alt="Screenshot (1204)" src="https://github.com/user-attachments/assets/2655eb08-f04e-404a-b6cf-00633377cfc9" />
+
+### Resume
+<img width="1920" height="1080" alt="Screenshot (1205)" src="https://github.com/user-attachments/assets/070d8c3e-64a0-454b-9162-0ebd0cc6f691" />
+
+### Github
+<img width="1920" height="1080" alt="Screenshot (1206)" src="https://github.com/user-attachments/assets/6c518d32-9c70-4adc-84d1-caeaf4f6c0cf" />
+
