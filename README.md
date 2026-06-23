@@ -119,6 +119,6 @@ npm run build
 
 ## 🎨 3D Interactive Portfolio Output
 <video controls width="720">
-  <source src="https://raw.githubusercontent.com/arvincatalbas/3D-Interactive-Portfolio/main/assets/demo.mp4" type="video/mp4">
+  <source src="https://Screen Recording 2026-06-23 154126.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
