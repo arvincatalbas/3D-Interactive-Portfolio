@@ -35,6 +35,14 @@ const certificates = [
     date: 'Course Certified',
     credentialId: 'CISCO-PKT-TRACER',
     color: '#a855f7'
+  },
+  {
+    id: 5,
+    title: 'Apply AI: Update your Resume',
+    issuer: 'Cisco Networking Academy',
+    date: 'Course certified',
+    credentialId: 'CISCO-APPLY-AI',
+    color: '#3476a6'
   }
 ];
 

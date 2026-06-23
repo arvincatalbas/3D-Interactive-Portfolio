@@ -15,15 +15,23 @@ const projects = [
     id: 2,
     title: 'Structural IT Costing System',
     description: 'Created a hardware procurement costing, bidding documents, and inventory sorting utility built to automate IT budgeting and client brochures.',
-    tech: ['React Native', 'JavaScript', 'HTML5/CSS3', 'SQL basics'],
+    tech: ['Excel'],
     github: 'https://github.com/arvincatalbas',
     live: 'https://github.com/arvincatalbas'
   },
   {
     id: 3,
-    title: 'Network Diagnostic & Scan Utility',
-    description: 'A custom python scripting utility that runs scans on local subnet IP ranges, checks port statuses, and troubleshoots common network errors.',
-    tech: ['Python', 'Linux CLI', 'TCP/IP Protocols', 'Git/GitHub'],
+    title: '3D Interactive Portfolio',
+    description: 'An immersive, premium 3D developer portfolio website built using React, Three.js, and React Three Fiber (R3F). The portfolio places the visitor inside an interactive 3D developer room/workspace where they can interact with physical objects to explore projects, credentials, resume, and real-time GitHub activity.',
+    tech: ['React', 'Three.Js', 'React Three Fiber(R3F)', 'Git/GitHub', 'Javascript'],
+    github: 'https://github.com/arvincatalbas',
+    live: 'https://github.com/arvincatalbas'
+  },
+  {
+    id: 3,
+    title: 'My Portfolio',
+    description: 'A premium, modern cross-platform portfolio application built using React Native, Expo Router (File-based Routing), and TypeScript. Optimized for both mobile devices (iOS/Android) and Web deployment (React Native Web).',
+    tech: ['React Native', 'Expo', 'Typescript', 'Javascript'],
     github: 'https://github.com/arvincatalbas',
     live: 'https://github.com/arvincatalbas'
   }
