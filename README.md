@@ -116,3 +116,9 @@ npm run build
 3. **Wall Certificate Gallery**: Picture frames mapped with certificate textures that expand to full screen using Framer Motion when clicked.
 4. **Holographic Github Terminal**: A glowing console terminal styled like CRT monitors that executes mock queries and displays GitHub repositories and contribution counts using Fetch API.
 5. **Route-Based Camera Transitions**: The `useCameraMover` hook reads the active location from `react-router-dom` and triggers a smooth linear interpolation (Lerp) to slide and rotate the camera towards the targeted interactive objects.
+
+## 🎨 3D Interactive Portfolio Output
+<video controls width="720">
+  <source src="https://raw.githubusercontent.com/arvincatalbas/3D-Interactive-Portfolio/main/assets/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
