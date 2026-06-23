@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Html } from '@react-three/drei';
 
-export function Laptop() {
+export function Laptop({ theme }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [hovered, setHovered] = useState(false);
@@ -65,7 +65,7 @@ export function Laptop() {
         {/* Glow emission plate under screen */}
         <mesh position={[0, 0.38, 0.012]}>
           <planeGeometry args={[1.0, 0.66]} />
-          <meshBasicMaterial color="#00ffb7" opacity={0.03} transparent />
+          <meshBasicMaterial color={theme?.colors?.primary || "#00ffb7"} opacity={0.03} transparent />
         </mesh>
 
         {/* Interactive Screen HTML */}

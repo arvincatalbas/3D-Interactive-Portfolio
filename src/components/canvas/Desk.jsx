@@ -2,7 +2,9 @@ import { Laptop } from './Laptop';
 import { Clipboard } from './Clipboard';
 import { Terminal } from './Terminal';
 
-export function Desk() {
+export function Desk({ theme }) {
+  const lampColor = theme?.colors?.primary || "#00ffcc";
+
   return (
     <group>
       {/* DESK TOP */}
@@ -29,7 +31,7 @@ export function Desk() {
         {/* Lamp Base */}
         <mesh castShadow>
           <cylinderGeometry args={[0.08, 0.08, 0.02, 16]} />
-          <meshStandardMaterial color="#00ffcc" roughness={0.3} metalness={0.7} />
+          <meshStandardMaterial color={lampColor} roughness={0.3} metalness={0.7} />
         </mesh>
         {/* Lamp Neck (Angled Arm) */}
         <mesh position={[0, 0.25, 0.05]} rotation={[0.4, 0, 0]} castShadow>
@@ -43,7 +45,7 @@ export function Desk() {
         {/* Lamp Shade (Head) */}
         <mesh position={[0.1, 0.58, 0.1]} rotation={[0, 0, -Math.PI / 4]} castShadow>
           <cylinderGeometry args={[0.08, 0.06, 0.15, 16]} />
-          <meshStandardMaterial color="#00ffcc" roughness={0.3} metalness={0.7} />
+          <meshStandardMaterial color={lampColor} roughness={0.3} metalness={0.7} />
         </mesh>
       </group>
 
@@ -110,9 +112,9 @@ export function Desk() {
       </group>
 
       {/* ATTACHED WORKSTATION DEVICES */}
-      <Laptop />
+      <Laptop theme={theme} />
       <Clipboard />
-      <Terminal />
+      <Terminal theme={theme} />
     </group>
   );
 }

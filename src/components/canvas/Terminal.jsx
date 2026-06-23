@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Html } from '@react-three/drei';
 
-export function Terminal() {
+export function Terminal({ theme }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [hovered, setHovered] = useState(false);
@@ -57,7 +57,7 @@ export function Terminal() {
       {/* SCREEN TINT (Greenish glass) */}
       <mesh position={[0, 0.35, 0.262]}>
         <planeGeometry args={[0.5, 0.34]} />
-        <meshStandardMaterial color="#0f2615" roughness={0.1} emissive="#00ff66" emissiveIntensity={hovered ? 0.25 : 0.1} />
+        <meshStandardMaterial color="#0b0d10" roughness={0.1} emissive={theme?.colors?.primary || "#00ff66"} emissiveIntensity={hovered ? 0.25 : 0.1} />
       </mesh>
 
       {/* Hologram Terminal Interface */}
@@ -93,7 +93,7 @@ export function Terminal() {
       {/* EMISSION LAMP SHADOW */}
       <pointLight
         position={[0, 0.35, 0.4]}
-        color="#39ff14"
+        color={theme?.colors?.primary || "#39ff14"}
         intensity={hovered ? 0.8 : 0.3}
         distance={2}
         decay={2}

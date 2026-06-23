@@ -4,6 +4,7 @@ import { Projects } from '../pages/Projects';
 import { Certificates } from '../pages/Certificates';
 import { Resume } from '../pages/Resume';
 import { Github } from '../pages/Github';
+import { Skills } from '../pages/Skills';
 import App from '../App';
 
 export const router = createBrowserRouter([
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: 'github',
         element: <Github />,
+      },
+      {
+        path: 'skills',
+        element: <Skills />,
       },
     ],
   },

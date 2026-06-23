@@ -4,14 +4,14 @@ import { Bookshelf } from './Bookshelf';
 import { WallFrames } from './WallFrames';
 import { CameraMover } from './CameraMover';
 
-export function Room() {
+export function Room({ theme }) {
   const floorColor = '#13151b';
   const wallColor = '#0b0c10';
 
   return (
     <group>
       {/* 3D SCENE LIGHTS */}
-      <Lights />
+      <Lights theme={theme} />
 
       {/* CAMERA NAVIGATION CONTROLLER */}
       <CameraMover />
@@ -40,13 +40,13 @@ export function Room() {
       {/* CORNER NEON GOW STRIP (Back left corner intersection) */}
       <mesh position={[-3.48, 1.8, -3.48]}>
         <cylinderGeometry args={[0.02, 0.02, 3.6, 8]} />
-        <meshBasicMaterial color="#ff00ff" />
+        <meshBasicMaterial color={theme.colors.secondary} />
       </mesh>
 
       {/* FURNITURE & OBJECTS */}
-      <Desk />
+      <Desk theme={theme} />
       <Bookshelf />
-      <WallFrames />
+      <WallFrames theme={theme} />
       
       {/* FLOOR RUG */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.005, 1.0]} receiveShadow>

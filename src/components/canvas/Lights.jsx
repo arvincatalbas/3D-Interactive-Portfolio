@@ -1,17 +1,24 @@
 import { useRef } from 'react';
 
-export function Lights() {
+export function Lights({ theme }) {
   const dirLightRef = useRef();
+
+  const colors = theme?.colors?.lights || {
+    ambient: '#1a1835',
+    directional: '#8aa8ff',
+    spotDesk: '#00f3ff',
+    spotCert: '#ff00cc',
+  };
 
   return (
     <>
       {/* Soft ambient light for dark mode base */}
-      <ambientLight color="#1a1835" intensity={1.8} />
+      <ambientLight color={colors.ambient} intensity={1.8} />
 
       {/* Directional light (simulating moonlight or window light) */}
       <directionalLight
         ref={dirLightRef}
-        color="#8aa8ff"
+        color={colors.directional}
         intensity={1.5}
         position={[8, 10, 5]}
         castShadow
@@ -40,7 +47,7 @@ export function Lights() {
 
       {/* Subtle blue accent glow behind desk */}
       <spotLight
-        color="#00f3ff"
+        color={colors.spotDesk}
         intensity={2.5}
         position={[0, 3, -2]}
         angle={Math.PI / 3}
@@ -50,7 +57,7 @@ export function Lights() {
 
       {/* Subtle magenta accent glow on the certificate wall */}
       <spotLight
-        color="#ff00cc"
+        color={colors.spotCert}
         intensity={2.0}
         position={[-2, 3, 2]}
         angle={Math.PI / 4}

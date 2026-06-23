@@ -1,7 +1,16 @@
-import { useRef } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Bookshelf() {
-  const shelfColor = '#2d251e';
+  const navigate = useNavigate();
+  const [hovered, setHovered] = useState(false);
+  
+  const shelfColor = hovered ? '#3e342c' : '#2d251e';
+
+  const handleClick = (e) => {
+    e.stopPropagation();
+    navigate('/skills');
+  };
 
   // Helper to generate a book mesh
   const Book = ({ width = 0.06, height = 0.3, depth = 0.22, color = '#ff3366', pos, rot = [0, 0, 0] }) => (
@@ -12,7 +21,20 @@ export function Bookshelf() {
   );
 
   return (
-    <group position={[1.2, 0, -1.1]}>
+    <group 
+      position={[1.2, 0, -1.1]}
+      onClick={handleClick}
+      onPointerOver={(e) => {
+        e.stopPropagation();
+        setHovered(true);
+        document.body.style.cursor = 'pointer';
+      }}
+      onPointerOut={(e) => {
+        e.stopPropagation();
+        setHovered(false);
+        document.body.style.cursor = 'auto';
+      }}
+    >
       {/* VERTICAL BACK BOARD */}
       <mesh castShadow receiveShadow position={[0, 1.1, -0.15]}>
         <boxGeometry args={[0.7, 2.2, 0.04]} />
@@ -63,9 +85,14 @@ export function Bookshelf() {
         </mesh>
         <mesh castShadow>
           <sphereGeometry args={[0.07, 16, 16]} />
-          <meshStandardMaterial color="#00ffff" roughness={0.1} emissive="#00e5ff" emissiveIntensity={0.6} />
+          <meshStandardMaterial 
+            color="#00ffff" 
+            roughness={0.1} 
+            emissive="#00e5ff" 
+            emissiveIntensity={hovered ? 1.5 : 0.6} 
+          />
         </mesh>
-        <pointLight color="#00ffff" intensity={0.5} distance={1.0} decay={2} />
+        <pointLight color="#00ffff" intensity={hovered ? 1.8 : 0.5} distance={1.0} decay={2} />
       </group>
 
       {/* BOOKS - SHELF 4 (Y = 1.75) */}

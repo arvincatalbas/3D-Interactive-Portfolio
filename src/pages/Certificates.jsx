@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, color } from 'framer-motion';
-import { Award, ShieldCheck, X, ZoomIn, Eye } from 'lucide-react';
+import { Award, ShieldCheck, X, Eye } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const certificates = [
@@ -141,15 +141,6 @@ export function Certificates() {
                 <code className="cert-id">ID: {cert.credentialId}</code>
               </div>
               <div className="cert-actions" onClick={(e) => e.stopPropagation()}>
-                <a
-                  href={cert.pdfUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="cert-action-btn"
-                  title="View Certification PDF"
-                >
-                  <ZoomIn size={16} />
-                </a>
                 <a
                   href={cert.pdfUrl}
                   target="_blank"
