@@ -43,6 +43,14 @@ const certificates = [
     date: 'Course certified',
     credentialId: 'CISCO-APPLY-AI',
     color: '#3476a6'
+  },
+  {
+    id: 6,
+    title: 'OJT Certificate',
+    issuer: 'Quanby Solutions Inc.',
+    date: 'Course certified',
+    credentialId: '##',
+    color: '#3476a6'
   }
 ];
 

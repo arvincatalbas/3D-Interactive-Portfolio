@@ -34,6 +34,14 @@ const projects = [
     tech: ['React Native', 'Expo', 'Typescript', 'Javascript'],
     github: 'https://github.com/arvincatalbas',
     live: 'https://github.com/arvincatalbas'
+  },
+  {
+    id: 4,
+    title: 'To-Do-List-App',
+    description: 'A beautifully designed, feature-rich todo application built with React Native and Expo. TodoFlow helps you manage your tasks efficiently with a clean, modern interface and powerful features',
+    tech: ['React Native', 'Expo', 'Typescript', 'Javascript'],
+    github: 'https://github.com/arvincatalbas',
+    live: 'https://github.com/arvincatalbas'
   }
 ];
 

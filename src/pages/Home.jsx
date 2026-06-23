@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { GithubIcon, LinkedinIcon, TwitterIcon } from '../components/ui/Icons';
+import { GithubIcon, LinkedinIcon, FacebookIcon } from '../components/ui/Icons';
 
 export function Home() {
   return (
@@ -37,6 +37,9 @@ export function Home() {
         </div>
 
         <div className="social-links">
+          <a href="https://facebook.com/senemorph" target="_blank" rel="noreferrer" title="Facebook">
+            <FacebookIcon size={20} />
+          </a>
           <a href="https://github.com/arvincatalbas" target="_blank" rel="noreferrer" title="GitHub">
             <GithubIcon size={20} />
           </a>
