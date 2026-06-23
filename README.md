@@ -118,17 +118,20 @@ npm run build
 5. **Route-Based Camera Transitions**: The `useCameraMover` hook reads the active location from `react-router-dom` and triggers a smooth linear interpolation (Lerp) to slide and rotate the camera towards the targeted interactive objects.
 
 ## 🎨 3D Interactive Portfolio Output
-// Place my-video.mp4 at src/assets/videos/my-video.mp4
-import myVideo from '../assets/videosScreen Recording 2026-06-23 154126';
+### Home Page
+<img width="1920" height="1080" alt="Screenshot (1202)" src="https://github.com/user-attachments/assets/bf2b5b59-4476-4640-a838-a69b2874002c" />
 
-export default function VideoImported() {
-  return (
-    <video
-      src={myVideo}
-      controls
-      preload="metadata"
-      style={{ maxWidth: '100%', height: 'auto' }}
-      playsInline
-    />
-  );
-}
+### Project Page
+<img width="1920" height="1080" alt="Screenshot (1203)" src="https://github.com/user-attachments/assets/bde36dcc-2060-4acf-b07c-9be1712ac414" />
+
+### Certificate Page
+<img width="1920" height="1080" alt="Screenshot (1204)" src="https://github.com/user-attachments/assets/23be831f-5269-4b96-89e7-0130cbb0f5b0" />
+
+### Resume Page
+<img width="1920" height="1080" alt="Screenshot (1205)" src="https://github.com/user-attachments/assets/323d495a-99e1-49be-b7ef-966f7a64bef1" />
+
+### Github Page
+<img width="1920" height="1080" alt="Screenshot (1206)" src="https://github.com/user-attachments/assets/4a26ab4f-6875-4a10-bc8c-4378c8a2e506" />
+
+
+
