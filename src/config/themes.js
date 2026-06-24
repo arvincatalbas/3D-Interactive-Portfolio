@@ -76,26 +76,21 @@ export const THEMES = [
     }
   },
   {
-    id: 'light',
-    name: 'Crystal Light',
-    primaryColor: '#4f46e5',
-    secondaryColor: '#ec4899',
+    id: 'tokyo',
+    name: 'Tokyo Night',
+    primaryColor: '#9d4edd',
+    secondaryColor: '#00f5ff',
     colors: {
-      primary: '#4f46e5',
-      secondary: '#ec4899',
-      bgDark: '#f8fafc',
-      bgDarker: '#f1f5f9',
-      floor: '#cbd5e1',
-      wall: '#e2e8f0',
-      grid1: '#cbd5e1',
-      grid2: '#94a3b8',
-      rug: '#818cf8',
+      primary: '#9d4edd',
+      secondary: '#00f5ff',
+      bgDark: '#0f0c1b',
+      bgDarker: '#090710',
       lights: {
-        ambient: '#ffffff',
-        directional: '#ffffff',
-        spotDesk: '#a5b4fc',
-        spotCert: '#fbcfe8',
-        lamp: '#4f46e5',
+        ambient: '#140f2b',
+        directional: '#a29bfe',
+        spotDesk: '#9d4edd',
+        spotCert: '#00f5ff',
+        lamp: '#9d4edd',
       }
     }
   }
