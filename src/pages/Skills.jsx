@@ -14,7 +14,6 @@ const skillsData = [
   // Languages
   { name: 'JavaScript', category: 'languages', level: 85, icon: 'JS', color: '#f7df1e' },
   { name: 'TypeScript', category: 'languages', level: 78, icon: 'TS', color: '#3178c6' },
-  { name: 'Python', category: 'languages', level: 75, icon: 'PY', color: '#3776ab' },
   { name: 'HTML5', category: 'languages', level: 90, icon: 'HTML', color: '#e34f26' },
   { name: 'CSS3', category: 'languages', level: 90, icon: 'CSS', color: '#7002f787' },
   { name: 'PHP', category: 'languages', level: 76, icon: 'PHP', color: '#7002f7e8' },

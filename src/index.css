@@ -1745,3 +1745,340 @@ h4 {
   font-weight: 600;
 }
 
+/* Contact Page Styles */
+.contact-form-scroll {
+  padding-bottom: 24px;
+}
+
+.contact-badges-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .contact-badges-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--border-glass);
+}
+
+.badge-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.badge-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-value {
+  font-size: 0.78rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.2s ease;
+}
+
+a.badge-value:hover {
+  color: var(--primary);
+}
+
+.contact-form-element {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-element input,
+.contact-form-element textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(14, 15, 20, 0.6);
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.85rem;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.contact-form-element input:focus,
+.contact-form-element textarea:focus {
+  border-color: var(--primary);
+  background: rgba(14, 15, 20, 0.8);
+  box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.contact-form-element input.input-error,
+.contact-form-element textarea.input-error {
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.15);
+}
+
+.field-error-msg {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: #ef4444;
+  margin-top: 4px;
+}
+
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 6px;
+}
+
+.btn-submit:hover:not(:disabled) {
+  box-shadow: 0 0 15px var(--primary-glow);
+  transform: translateY(-1px);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-card-socials {
+  margin-top: 24px;
+  border-top: 1px solid var(--border-glass);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.socials-title {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.contact-socials-list {
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+/* Success Card */
+.contact-success-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 16px;
+  height: 100%;
+  gap: 16px;
+}
+
+.success-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--primary-glow);
+  border: 1px solid var(--border-active);
+  color: var(--primary);
+  margin-bottom: 8px;
+  animation: pulse-success 2s infinite;
+}
+
+@keyframes pulse-success {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 204, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(0, 255, 204, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 204, 0); }
+}
+
+.contact-success-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.contact-success-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+}
+
+.btn-success-reset {
+  width: 100%;
+  padding: 12px;
+}
+
+/* Smartphone screen mockup styling */
+.phone-screen-content {
+  width: 180px;
+  height: 320px;
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  -webkit-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  border: 2px solid #30363d;
+  border-radius: 12px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.phone-header {
+  height: 24px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 9px;
+  font-weight: 600;
+  color: #8b949e;
+  box-sizing: border-box;
+}
+
+.phone-header .icons {
+  display: flex;
+  gap: 4px;
+}
+
+.phone-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  background: #0d1117;
+  box-sizing: border-box;
+}
+
+.message-app {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-bubble {
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 9px;
+  line-height: 1.3;
+  max-width: 85%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.chat-bubble.received {
+  background: #21262d;
+  color: #c9d1d9;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+  border: 1px solid #30363d;
+}
+
+.chat-bubble .sender {
+  display: block;
+  font-size: 8px;
+  font-weight: 600;
+  color: #58a6ff;
+  margin-bottom: 2px;
+}
+
+.chat-bubble.highlight-bubble {
+  background: rgba(0, 255, 204, 0.08);
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  position: relative;
+  align-self: flex-start;
+}
+
+.chat-bubble.highlight-bubble .sender {
+  color: var(--primary);
+}
+
+.chat-bubble.highlight-bubble p {
+  margin: 0;
+}
+
+.pulse-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+  animation: pulse-dot-anim 1.5s infinite;
+}
+
+@keyframes pulse-dot-anim {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+.phone-nav-hint {
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--primary);
+  animation: flash-nav-hint 2s infinite;
+  padding: 6px 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+@keyframes flash-nav-hint {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+

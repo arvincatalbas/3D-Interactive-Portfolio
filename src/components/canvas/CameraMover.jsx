@@ -33,6 +33,11 @@ const routeConfigs = {
     position: [1.2, 1.6, 0.8],
     target: [1.2, 1.1, -1.1],
     fov: 32
+  },
+  '/contact': {
+    position: [-0.38, 1.5, 0.8],
+    target: [-0.38, 1.0, 0.24],
+    fov: 30
   }
 };
 

@@ -1,15 +1,16 @@
 import { NavLink } from 'react-router-dom';
-import { Home, Briefcase, Award, FileText, Code2 } from 'lucide-react';
+import { Home, Briefcase, Award, FileText, Code2, Mail } from 'lucide-react';
 import { GithubIcon } from './Icons';
 
 export function Navigation() {
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
-    { path: '/skills', label: 'Skills', icon: Code2 },
     { path: '/projects', label: 'Projects', icon: Briefcase },
     { path: '/certificates', label: 'Certificates', icon: Award },
+    { path: '/skills', label: 'Skills', icon: Code2 },
     { path: '/resume', label: 'Resume', icon: FileText },
     { path: '/github', label: 'GitHub', icon: GithubIcon },
+    { path: '/contact', label: 'Contact', icon: Mail },
   ];
 
   return (

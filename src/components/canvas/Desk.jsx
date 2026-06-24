@@ -1,6 +1,7 @@
 import { Laptop } from './Laptop';
 import { Clipboard } from './Clipboard';
 import { Terminal } from './Terminal';
+import { ContactObject } from './ContactObject';
 
 export function Desk({ theme }) {
   const lampColor = theme?.colors?.primary || "#00ffcc";
@@ -115,6 +116,7 @@ export function Desk({ theme }) {
       <Laptop theme={theme} />
       <Clipboard />
       <Terminal theme={theme} />
+      <ContactObject theme={theme} />
     </group>
   );
 }
