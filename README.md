@@ -7,11 +7,12 @@ An immersive, premium 3D developer portfolio website built using React, Three.js
 ## 🎨 Design & Theme
 
 - **Aesthetic**: Premium dark-mode workspace using soft lighting, neon accent glows, and responsive glassmorphism overlays.
-- **Dynamic Theme Switcher**: 4 gorgeous pre-configured theme presets that instantly adjust the 3D scene's colors, ambient lighting, spotlight accents, fog, and HTML UI overlays:
+- **Dynamic Theme Switcher**: 5 gorgeous pre-configured theme presets that instantly adjust the 3D scene's colors, ambient lighting, spotlight accents, fog, and HTML UI overlays:
   - **Cyber Emerald** (`cyberpunk`): High-tech neon teal and magenta.
   - **Neon Sunset** (`sunset`): Warm purple, pink, and orange gradient highlights.
   - **Deep Ocean** (`ocean`): Cool, deep marine blues and purples.
   - **Vibrant Amber** (`amber`): Golden, retro warm amber tones.
+  - **Tokyo Night** (`tokyo`): High-tech neon purple and cyan.
 - **Interactivity**: Clicking on 3D objects in the room seamlessly zooms the camera to focus on them while fading in rich 2D UI panels.
 - **Micro-animations**: Smooth hover transitions, floating 3D elements, pulsing notifications, and Framer Motion transitions.
 
