@@ -1,12 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { FacebookIcon, GithubIcon, LinkedinIcon } from '../components/ui/Icons';
 
 export function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | submitting | success
+  const [submitError, setSubmitError] = useState(null);
+  const [submittedAsDemo, setSubmittedAsDemo] = useState(false);
+
+  useEffect(() => {
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY?.trim();
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(accessKey || '');
+
+    if (!accessKey || accessKey === '' || accessKey === 'your_access_key_here') {
+      console.log(
+        '%c[Contact Form]%c VITE_WEB3FORMS_ACCESS_KEY is missing from environment variables (.env).\nContact submissions will run in SIMULATED DEMO mode. To receive real emails, get a free key from https://web3forms.com and add it to your .env file.',
+        'color: #00ffff; font-weight: bold;',
+        'color: #ff9900;'
+      );
+    } else if (!isUuid) {
+      console.log(
+        `%c[Contact Form]%c The configured VITE_WEB3FORMS_ACCESS_KEY ("${accessKey}") is not a valid UUID format.\nContact submissions will run in SIMULATED DEMO mode. Please check your .env file.`,
+        'color: #ff0055; font-weight: bold;',
+        'color: #ff9900;'
+      );
+    }
+  }, []);
 
   const validate = () => {
     const tempErrors = {};
@@ -35,21 +56,70 @@ export function Contact() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setStatus('submitting');
-    
-    // Simulate API call transmission
-    setTimeout(() => {
-      setStatus('success');
-      setForm({ name: '', email: '', subject: '', message: '' });
-    }, 2000);
+    setSubmitError(null);
+    setSubmittedAsDemo(false);
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY?.trim();
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(accessKey || '');
+
+    if (!accessKey || accessKey === '' || accessKey === 'your_access_key_here' || !isUuid) {
+      if (accessKey && accessKey !== 'your_access_key_here' && !isUuid) {
+        console.warn(`[Contact Form] Web3Forms Access Key "${accessKey}" is not a valid UUID format. Reverting to simulated demo mode.`);
+      } else {
+        console.warn("[Contact Form] Web3Forms VITE_WEB3FORMS_ACCESS_KEY is not configured. Reverting to simulated demo mode.");
+      }
+      
+      // Simulate API call in dev/demo mode when access key is missing or invalid
+      setSubmittedAsDemo(true);
+      setTimeout(() => {
+        setStatus('success');
+        setForm({ name: '', email: '', subject: '', message: '' });
+      }, 2000);
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+          from_name: `${form.name} (Portfolio Contact Form)`
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus('success');
+        setForm({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitError(data.message || 'Something went wrong. Please try again later.');
+        setStatus('idle');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitError('Failed to connect to the mail server. Please check your internet connection.');
+      setStatus('idle');
+    }
   };
 
   const handleReset = () => {
     setStatus('idle');
+    setSubmitError(null);
+    setSubmittedAsDemo(false);
     setErrors({});
   };
 
@@ -64,7 +134,7 @@ export function Contact() {
       <div className="overlay-card glass panels-container">
         <div className="panel-header">
           <Mail className="panel-icon" size={24} />
-          <h2>Get In Touch</h2>
+          <h2>Contact Me</h2>
         </div>
         <p className="panel-subtitle">Feel free to drop a message. I will get back to you as soon as possible.</p>
 
@@ -82,7 +152,19 @@ export function Contact() {
                   <CheckCircle2 size={48} className="success-icon" />
                 </div>
                 <h3>Transmission Complete!</h3>
-                <p>Thank you for reaching out! Your message has been sent successfully. I'll get in touch with you soon.</p>
+                {submittedAsDemo ? (
+                  <div className="demo-success-notice glass-inner">
+                    <AlertCircle size={18} className="warning-icon" />
+                    <div>
+                      <p className="demo-notice-title">Simulated Demo Mode</p>
+                      <p className="demo-notice-desc">
+                        No email was sent. To receive real emails, please replace the value in your <code>.env</code> file with a valid Web3Forms Access Key and restart your server.
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <p>Thank you for reaching out! Your message has been sent successfully. I'll get in touch with you soon.</p>
+                )}
                 <button onClick={handleReset} className="btn btn-primary btn-success-reset">
                   Send Another Message
                 </button>
@@ -104,6 +186,13 @@ export function Contact() {
                     </div>
                   </div>
                   <div className="contact-badge-item glass-inner">
+                    <Phone size={16} className="highlight" />
+                    <div className="badge-details">
+                      <span className="badge-label">Phone</span>
+                      <a href="tel:+639773195952" className="badge-value">+63 977 319 5952</a>
+                    </div>
+                  </div>
+                  <div className="contact-badge-item glass-inner contact-badge-full">
                     <MapPin size={16} className="highlight" />
                     <div className="badge-details">
                       <span className="badge-label">Location</span>
@@ -197,6 +286,13 @@ export function Contact() {
                       )}
                     </div>
                   </div>
+
+                  {submitError && (
+                    <div className="form-submit-error glass-inner">
+                      <AlertCircle size={16} className="error-icon" style={{ minWidth: '16px' }} />
+                      <span>{submitError}</span>
+                    </div>
+                  )}
 
                   <button
                     type="submit"

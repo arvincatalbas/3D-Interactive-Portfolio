@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { GithubIcon, LinkedinIcon, FacebookIcon } from '../components/ui/Icons';
+import { ScrambleText } from '../components/ui/ScrambleText';
 
 export function Home() {
   return (
@@ -16,7 +17,7 @@ export function Home() {
         <div className="home-header">
           <div className="home-header-text">
             <span className="badge">Available for Projects & Roles</span>
-            <h1>Hi, I'm <span className="highlight">Arvin Catalbas</span></h1>
+            <h1>Hi, I'm <span className="highlight"><ScrambleText text="Arvin Catalbas" /></span></h1>
           </div>
 
         </div>

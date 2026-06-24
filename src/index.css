@@ -163,6 +163,20 @@ h4 {
   text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
 }
 
+.scramble-text {
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  position: relative;
+}
+
+.scramble-text.scrambling {
+  color: var(--secondary) !important;
+  text-shadow: 0 0 15px var(--secondary), 0 0 25px rgba(255, 0, 255, 0.4) !important;
+}
+
+.scramble-text:hover {
+  text-shadow: 0 0 12px var(--primary), 0 0 24px rgba(0, 255, 204, 0.6);
+}
+
 .badge {
   display: inline-block;
   align-self: flex-start;
@@ -1769,9 +1783,16 @@ h4 {
   margin-bottom: 20px;
 }
 
+.contact-badge-full {
+  grid-column: span 2;
+}
+
 @media (max-width: 480px) {
   .contact-badges-grid {
     grid-template-columns: 1fr;
+  }
+  .contact-badge-full {
+    grid-column: span 1;
   }
 
   .overlay-card {
@@ -2146,5 +2167,58 @@ a.badge-value:hover {
   50% { opacity: 1; }
   100% { opacity: 0.3; }
 }
+.form-submit-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
 
+.demo-success-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #f59e0b;
+  text-align: left;
+  margin: 16px 0;
+  font-size: 0.85rem;
+}
 
+.demo-success-notice .warning-icon {
+  margin-top: 2px;
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+
+.demo-success-notice .demo-notice-title {
+  font-weight: 700;
+  margin: 0 0 4px 0 !important;
+  color: #f59e0b !important;
+  font-size: 0.9rem;
+}
+
+.demo-success-notice .demo-notice-desc {
+  margin: 0 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.demo-success-notice code {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #fff;
+  font-family: monospace;
+}
