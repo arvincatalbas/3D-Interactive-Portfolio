@@ -58,7 +58,8 @@ This project follows a component-driven routing architecture where each route dy
 │   │       ├── Navigation.jsx# Glassmorphism overlay menu
 │   │       ├── Loader.jsx    # Preloader overlay with progress feedback
 │   │       ├── Settings.jsx  # Configuration dropdown for themes
-│   │       └── Icons.jsx     # Reusable custom SVG icons
+│   │       ├── Icons.jsx     # Reusable custom SVG icons
+│   │       └── ScrambleText.jsx# Digital scramble/decrypt text animation component
 │   ├── pages/                # Route components (2D HTML overlays)
 │   │   ├── Home.jsx          # Intro overlay (Overall room view)
 │   │   ├── Projects.jsx      # Project list & details modal
@@ -110,12 +111,23 @@ cd 3d-portfolio
 npm install
 ```
 
-### 2. Run the Development Server
+### 2. Environment Configuration
+Create a `.env` file in the root directory (or copy `.env.example`) and add your Web3Forms access key for the contact form to function:
+```bash
+# Rename the example file
+cp .env.example .env
+```
+Then, edit the `.env` file and replace `your_access_key_here` with your actual Web3Forms access key:
+```env
+VITE_WEB3FORMS_ACCESS_KEY=your_access_key_here
+```
+
+### 3. Run the Development Server
 ```bash
 npm run dev
 ```
 
-### 3. Production Build
+### 4. Production Build
 ```bash
 npm run build
 ```
@@ -129,5 +141,7 @@ npm run build
 3. **Wall Certificate Gallery**: Picture frames mapped with certificate textures that expand to full screen using Framer Motion when clicked.
 4. **Interactive GitHub CRT Terminal**: A bulky retro computer monitor styled like a terminal screen that executes actual API requests and displays user profiles, repository counts, and latest projects using the GitHub REST API.
 5. **Interactive Smartphone**: A custom phone model displaying chat messages that prompts user interaction and links to the contact section.
-6. **Skills Dashboard**: Visualizes technical capabilities in programming, frameworks, and infrastructure with custom-colored progress indicators.
-7. **Route-Based Camera Transitions**: The declarative `CameraMover` component listens to the active route from `react-router-dom` and triggers a smooth lerp to slide and rotate the camera towards target physical objects in the room.
+6. **Functional Contact Form**: Connected to the Web3Forms API with automatic validation, error handling, support for simulated demo fallback, and responsive UI feedback.
+7. **Skills Dashboard**: Visualizes technical capabilities in programming, frameworks, and infrastructure with custom-colored progress indicators.
+8. **Decryption Text Scramble**: Custom `<ScrambleText>` component that applies a digital scramble/decrypt animation to text on load and hover (used for the developer name on the home page).
+9. **Route-Based Camera Transitions**: The declarative `CameraMover` component listens to the active route from `react-router-dom` and triggers a smooth lerp to slide and rotate the camera towards target physical objects in the room.
