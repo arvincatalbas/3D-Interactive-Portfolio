@@ -42,7 +42,7 @@ const routeConfigs = {
 };
 
 export function CameraMover() {
-  const { camera } = useThree();
+  const { camera, size } = useThree();
   const location = useLocation();
   const currentRoute = location.pathname;
 
@@ -56,10 +56,11 @@ export function CameraMover() {
     targetPosition.current.set(...config.position);
     targetLookAt.current.set(...config.target);
     
-    // Smoothly adjust FOV (dampening could be applied, but standard update is fine)
-    camera.fov = config.fov;
+    // Smoothly adjust FOV based on screen size / portrait aspect ratio
+    const isMobile = size.width < 768 || size.width < size.height;
+    camera.fov = config.fov + (isMobile ? 12 : 0);
     camera.updateProjectionMatrix();
-  }, [currentRoute, camera, config]);
+  }, [currentRoute, camera, config, size.width, size.height]);
 
   useFrame((state, delta) => {
     // Clamp delta to avoid massive jumps when tab loses focus

@@ -28,7 +28,7 @@ const projects = [
     live: 'https://github.com/arvincatalbas'
   },
   {
-    id: 3,
+    id: 4,
     title: 'My Portfolio',
     description: 'A premium, modern cross-platform portfolio application built using React Native, Expo Router (File-based Routing), and TypeScript. Optimized for both mobile devices (iOS/Android) and Web deployment (React Native Web).',
     tech: ['React Native', 'Expo', 'Typescript', 'Javascript'],
@@ -36,7 +36,7 @@ const projects = [
     live: 'https://github.com/arvincatalbas'
   },
   {
-    id: 4,
+    id: 5,
     title: 'To-Do-List-App',
     description: 'A beautifully designed, feature-rich todo application built with React Native and Expo. TodoFlow helps you manage your tasks efficiently with a clean, modern interface and powerful features',
     tech: ['React Native', 'Expo', 'Typescript', 'Javascript'],

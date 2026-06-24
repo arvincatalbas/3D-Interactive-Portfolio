@@ -1365,6 +1365,10 @@ h4 {
   color: var(--primary);
 }
 
+.skills-layout {
+  width: 460px;
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
   .page-overlay {
@@ -1382,6 +1386,18 @@ h4 {
   h1 {
     font-size: 2rem;
   }
+
+  .skills-layout,
+  .github-layout,
+  .resume-layout {
+    width: 100%;
+  }
+
+  .cert-modal {
+    width: 90%;
+    max-width: 580px;
+    padding: 32px 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1395,10 +1411,6 @@ h4 {
 }
 
 /* Skills Page Styles */
-.skills-layout {
-  width: 460px;
-}
-
 .skills-tabs {
   display: flex;
   gap: 8px;
@@ -1760,6 +1772,60 @@ h4 {
 @media (max-width: 480px) {
   .contact-badges-grid {
     grid-template-columns: 1fr;
+  }
+
+  .overlay-card {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .home-header {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .resume-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .modal-cert-footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cert-modal h2 {
+    font-size: 1.6rem;
+  }
+
+  .cert-modal h1 {
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+  }
+
+  .terminal-prompt {
+    font-size: 0;
+  }
+
+  .terminal-prompt::before {
+    content: "$ ";
+    font-size: 0.8rem;
+  }
+
+  .skills-footer-badge {
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    line-height: 1.4;
   }
 }
 
