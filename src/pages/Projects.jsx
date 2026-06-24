@@ -5,22 +5,6 @@ import { GithubIcon } from '../components/ui/Icons';
 const projects = [
   {
     id: 1,
-    title: 'Enterprise LAN & CCTV Infrastructure',
-    description: 'Designed and deployed local area network configurations, network cabling, device configurations, and CCTV setups during enterprise-level OJT.',
-    tech: ['TCP/IP', 'Network Cabling', 'Cisco Packet Tracer', 'Router Config'],
-    github: 'https://github.com/arvincatalbas',
-    live: 'https://github.com/arvincatalbas'
-  },
-  {
-    id: 2,
-    title: 'Structural IT Costing System',
-    description: 'Created a hardware procurement costing, bidding documents, and inventory sorting utility built to automate IT budgeting and client brochures.',
-    tech: ['Excel'],
-    github: 'https://github.com/arvincatalbas',
-    live: 'https://github.com/arvincatalbas'
-  },
-  {
-    id: 3,
     title: '3D Interactive Portfolio',
     description: 'An immersive, premium 3D developer portfolio website built using React, Three.js, and React Three Fiber (R3F). The portfolio places the visitor inside an interactive 3D developer room/workspace where they can interact with physical objects to explore projects, credentials, resume, and real-time GitHub activity.',
     tech: ['React', 'Three.Js', 'React Three Fiber(R3F)', 'Git/GitHub', 'Javascript'],
@@ -28,7 +12,7 @@ const projects = [
     live: 'https://github.com/arvincatalbas'
   },
   {
-    id: 4,
+    id: 2,
     title: 'My Portfolio',
     description: 'A premium, modern cross-platform portfolio application built using React Native, Expo Router (File-based Routing), and TypeScript. Optimized for both mobile devices (iOS/Android) and Web deployment (React Native Web).',
     tech: ['React Native', 'Expo', 'Typescript', 'Javascript'],
@@ -36,7 +20,7 @@ const projects = [
     live: 'https://github.com/arvincatalbas'
   },
   {
-    id: 5,
+    id: 3,
     title: 'To-Do-List-App',
     description: 'A beautifully designed, feature-rich todo application built with React Native and Expo. TodoFlow helps you manage your tasks efficiently with a clean, modern interface and powerful features',
     tech: ['React Native', 'Expo', 'Typescript', 'Javascript'],
