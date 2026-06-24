@@ -15,22 +15,22 @@ const skillsData = [
   { name: 'JavaScript', category: 'languages', level: 85, icon: 'JS', color: '#f7df1e' },
   { name: 'TypeScript', category: 'languages', level: 78, icon: 'TS', color: '#3178c6' },
   { name: 'HTML5', category: 'languages', level: 90, icon: 'HTML', color: '#e34f26' },
-  { name: 'CSS3', category: 'languages', level: 90, icon: 'CSS', color: '#7002f787' },
-  { name: 'PHP', category: 'languages', level: 76, icon: 'PHP', color: '#7002f7e8' },
+  { name: 'CSS3', category: 'languages', level: 90, icon: 'CSS', color: '#2965f1' },
+  { name: 'PHP', category: 'languages', level: 76, icon: 'PHP', color: '#777bb4' },
   { name: 'SQL', category: 'languages', level: 72, icon: 'SQL', color: '#00758f' },
 
   // Frameworks
   { name: 'React', category: 'frameworks', level: 84, icon: 'React', color: '#61dafb' },
   { name: 'React Native', category: 'frameworks', level: 80, icon: 'Native', color: '#00d2ff' },
   { name: 'Three.js / R3F', category: 'frameworks', level: 75, icon: '3D', color: '#ff007f' },
-  { name: 'Expo', category: 'frameworks', level: 82, icon: 'Expo', color: '#ffffff' },
-  { name: 'Tailwind', category: 'frameworks', level: 79, icon: 'Tailwind', color: '#300becff' },
+  { name: 'Expo', category: 'frameworks', level: 82, icon: 'Expo', color: '#8b5cf6' },
+  { name: 'Tailwind', category: 'frameworks', level: 79, icon: 'Tailwind', color: '#38bdf8' },
 
   // Infrastructure / Networking
-  { name: 'TCP/IP & LAN Setup', category: 'infrastructure', level: 92, icon: 'LAN', color: '#00ffcc' },
+  { name: 'TCP/IP & LAN Setup', category: 'infrastructure', level: 92, icon: 'LAN', color: '#0ea5e9' },
   { name: 'Cisco Routing/Switching', category: 'infrastructure', level: 88, icon: 'Cisco', color: '#1ba0d7' },
   { name: 'Electrical Installation', category: 'infrastructure', level: 90, icon: 'EIM', color: '#ffaa00' },
-  { name: 'Hardware Diagnostics', category: 'infrastructure', level: 85, icon: 'HW', color: '#cbd5e0' },
+  { name: 'Hardware Diagnostics', category: 'infrastructure', level: 85, icon: 'HW', color: '#64748b' },
 
   // Tools & Other
   { name: 'Git & GitHub', category: 'tools', level: 82, icon: 'Git', color: '#f05032' },

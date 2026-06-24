@@ -74,6 +74,30 @@ export const THEMES = [
         lamp: '#ffb703',
       }
     }
+  },
+  {
+    id: 'light',
+    name: 'Crystal Light',
+    primaryColor: '#4f46e5',
+    secondaryColor: '#ec4899',
+    colors: {
+      primary: '#4f46e5',
+      secondary: '#ec4899',
+      bgDark: '#f8fafc',
+      bgDarker: '#f1f5f9',
+      floor: '#cbd5e1',
+      wall: '#e2e8f0',
+      grid1: '#cbd5e1',
+      grid2: '#94a3b8',
+      rug: '#818cf8',
+      lights: {
+        ambient: '#ffffff',
+        directional: '#ffffff',
+        spotDesk: '#a5b4fc',
+        spotCert: '#fbcfe8',
+        lamp: '#4f46e5',
+      }
+    }
   }
 ];
 

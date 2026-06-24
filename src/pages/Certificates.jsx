@@ -10,7 +10,7 @@ const certificates = [
     issuer: 'TESDA (National Certificate)',
     date: 'Certified',
     credentialId: '17056202009445',
-    color: '#ffaa00',
+    color: '#d97706',
     pdfUrl: '/EIM NCll.pdf'
   },
   {
@@ -19,7 +19,7 @@ const certificates = [
     issuer: 'Cisco Networking Academy',
     date: 'Course Certified',
     credentialId: 'CISCO-JS-ESS1',
-    color: '#00e5ff',
+    color: '#0284c7',
     pdfUrl: '/JavaScript_Essentials_1_certificate_arvin9999990-gmail-com_925cbfb1-7b89-4611-94a7-4a9246ac0080.pdf'
   },
   {
@@ -28,7 +28,7 @@ const certificates = [
     issuer: 'Antrophic',
     date: 'Certified',
     credentialId: 'CLAUDE-ACTION-101',
-    color: '#ff007f',
+    color: '#db2777',
     pdfUrl: '/certificate-eqyf6r2yd873-1775453081.pdf'
   },
   {
@@ -37,7 +37,7 @@ const certificates = [
     issuer: 'Cisco Networking Academy',
     date: 'Course Certified',
     credentialId: 'CISCO-PKT-TRACER',
-    color: '#a855f7',
+    color: '#7c3aed',
     pdfUrl: '/Getting_Started_with_Cisco_Packet_Tracer_certificate_arvin9999990-gmail-com_e0559a8c-4f7f-4dc0-b058-05610f19ede9.pdf'
   },
   {
@@ -46,7 +46,7 @@ const certificates = [
     issuer: 'Cisco Networking Academy',
     date: 'Course certified',
     credentialId: 'CISCO-APPLY-AI',
-    color: '#00ff736e',
+    color: '#059669',
     pdfUrl: '/Apply_AI-_Update_Your_Resume_certificate_arvin9999990-gmail-com_1701a7a9-f551-4890-a8e1-7601b9e6a0d4.pdf'
   },
   {
@@ -55,7 +55,7 @@ const certificates = [
     issuer: 'Quanby Solutions Inc.',
     date: 'Course Certified',
     credentialId: '##',
-    color: '#3476a6',
+    color: '#2563eb',
     pdfUrl: '/OJT Certificate.pdf'
   },
   {
@@ -64,7 +64,7 @@ const certificates = [
     issuer: 'Antrophic',
     date: 'Course Certified',
     credentialId: 'Claude-101',
-    color: '#04f8e8b9',
+    color: '#0d9488',
     pdfUrl: '/certificate-aq4wbrdpreua-1776493635.pdf'
   },
   {
@@ -73,7 +73,7 @@ const certificates = [
     issuer: 'Cisco Networking Academy',
     date: 'Course Certified',
     credentialId: 'CISCO-NET-BASICS',
-    color: '#ec0dc3c3',
+    color: '#c026d3',
     pdfUrl: '/Networking_Basics_certificate_arvin9999990-gmail-com_4399dd47-a990-4af2-81fd-1a8f5129959d.pdf'
   },
   {
@@ -82,7 +82,7 @@ const certificates = [
     issuer: 'Sorrco II',
     date: 'Course Certified',
     credentialId: 'Work-immersion-EIM',
-    color: '#f6fbfbff',
+    color: '#475569',
     pdfUrl: '/Work Immersion.pdf'
   },
   {
@@ -91,7 +91,7 @@ const certificates = [
     issuer: 'Sorsogon State University',
     date: 'Course Certified',
     credentialId: '8908185',
-    color: '#e27e0457',
+    color: '#ea580c',
     pdfUrl: '/Diploma.pdf'
   }
 ];

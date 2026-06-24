@@ -5,8 +5,11 @@ import { WallFrames } from './WallFrames';
 import { CameraMover } from './CameraMover';
 
 export function Room({ theme }) {
-  const floorColor = '#13151b';
-  const wallColor = '#0b0c10';
+  const floorColor = theme?.colors?.floor || '#13151b';
+  const wallColor = theme?.colors?.wall || '#0b0c10';
+  const gridColor1 = theme?.colors?.grid1 || '#1f2430';
+  const gridColor2 = theme?.colors?.grid2 || '#171923';
+  const rugColor = theme?.colors?.rug || '#4a3e68';
 
   return (
     <group>
@@ -23,7 +26,7 @@ export function Room({ theme }) {
       </mesh>
 
       {/* FLOOR BORDER GRID / LINES (To give structure to floor) */}
-      <gridHelper args={[7, 14, '#1f2430', '#171923']} position={[0, 0.001, 0]} />
+      <gridHelper args={[7, 14, gridColor1, gridColor2]} position={[0, 0.001, 0]} />
 
       {/* BACK WALL (Z = -3.5) */}
       <mesh position={[0, 1.8, -3.5]} receiveShadow>
@@ -51,7 +54,7 @@ export function Room({ theme }) {
       {/* FLOOR RUG */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.005, 1.0]} receiveShadow>
         <planeGeometry args={[2.0, 1.2]} />
-        <meshStandardMaterial color="#4a3e68" roughness={1.0} />
+        <meshStandardMaterial color={rugColor} roughness={1.0} />
       </mesh>
     </group>
   );

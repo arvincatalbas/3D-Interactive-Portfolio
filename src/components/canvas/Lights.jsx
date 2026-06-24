@@ -10,16 +10,18 @@ export function Lights({ theme }) {
     spotCert: '#ff00cc',
   };
 
+  const isLightMode = theme?.id === 'light';
+
   return (
     <>
-      {/* Soft ambient light for dark mode base */}
-      <ambientLight color={colors.ambient} intensity={1.8} />
+      {/* Soft ambient light for dark mode base / bright for light mode */}
+      <ambientLight color={colors.ambient} intensity={isLightMode ? 2.5 : 1.8} />
 
       {/* Directional light (simulating moonlight or window light) */}
       <directionalLight
         ref={dirLightRef}
         color={colors.directional}
-        intensity={1.5}
+        intensity={isLightMode ? 2.0 : 1.5}
         position={[8, 10, 5]}
         castShadow
         shadow-mapSize-width={1024}
