@@ -146,3 +146,7 @@ npm run build
 7. **Skills Dashboard**: Visualizes technical capabilities in programming, frameworks, and infrastructure with custom-colored progress indicators.
 8. **Decryption Text Scramble**: Custom `<ScrambleText>` component that applies a digital scramble/decrypt animation to text on load and hover (used for the developer name on the home page).
 9. **Route-Based Camera Transitions**: The declarative `CameraMover` component listens to the active route from `react-router-dom` and triggers a smooth lerp to slide and rotate the camera towards target physical objects in the room.
+
+
+# 3D Interactive Portfolio 🚀
+#### Link: https://3-d-interactive-portfolio-zeta.vercel.app/
