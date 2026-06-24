@@ -133,5 +133,4 @@ npm run build
 7. **Route-Based Camera Transitions**: The declarative `CameraMover` component listens to the active route from `react-router-dom` and triggers a smooth lerp to slide and rotate the camera towards target physical objects in the room.
 
 
-# 3D Interactive Portfolio Web Apllication
-#### Link: https://3-d-interactive-portfolio-navy.vercel.app/
+# 🚀 3D Interactive Portfolio Web Application
