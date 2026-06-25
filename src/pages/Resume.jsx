@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FileText, Download, Briefcase, GraduationCap, Code2 } from 'lucide-react';
+import { FileText, Briefcase, GraduationCap, Code2 } from 'lucide-react';
 
 const experience = [
   {
@@ -23,21 +23,23 @@ const education = [
     id: 1,
     degree: 'B.S. in Information Technology',
     school: 'Sorsogon State University – Bulan Campus',
-    period: 'Graduated'
+    period: 'Graduated',
+    details: 'Focused on software development, database management systems, web applications, and network administration. Developed strong analytical and engineering skills through capstone projects and lab work.'
   },
   {
     id: 2,
-    degree: 'Technical Vocational Livelihood (EIM)',
+    degree: 'TVL - Electrical Installation & Maintenace',
     school: 'Barcelona National Comprehensive High School',
-    period: 'Secondary'
+    period: 'Secondary',
+    details: 'Specialized in electrical wiring, power installation, maintenance, and system troubleshooting. Obtained National Certificate II (NCII) demonstrating proficiency in industrial and residential electrical systems.'
   }
 ];
 
 const skills = [
-  { name: 'Networking & Infrastructure (TCP/IP, Cisco, Cabling)', level: 92 },
-  { name: 'Operating Systems (Windows, Linux CLI, Admin)', level: 88 },
-  { name: 'Programming (JS/React Native, Python, SQL)', level: 78 },
-  { name: 'Electrical Installation & Maintenance (NCII Certified)', level: 90 }
+  'Networking & Infrastructure (TCP/IP, Cisco, Cabling)',
+  'Operating Systems (Windows, Linux CLI, Admin)',
+  'Programming (JS/React Native, Python, SQL)',
+  'Electrical Installation & Maintenance (NCII Certified)'
 ];
 
 export function Resume() {
@@ -91,6 +93,7 @@ export function Resume() {
                     <span className="timeline-date">{edu.period}</span>
                     <h4>{edu.degree}</h4>
                     <h5>{edu.school}</h5>
+                    <p>{edu.details}</p>
                   </div>
                 ))}
               </div>
@@ -105,21 +108,18 @@ export function Resume() {
                 <h3>Technical Skills</h3>
               </div>
               <div className="skills-container">
-                {skills.map((skill) => (
-                  <div key={skill.name} className="skill-row">
-                    <div className="skill-info">
-                      <span>{skill.name}</span>
-                      <span>{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar-bg">
-                      <motion.div
-                        className="skill-bar-fill"
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                      ></motion.div>
-                    </div>
-                  </div>
+                {skills.map((skill, index) => (
+                  <motion.div
+                    key={skill}
+                    className="skill-item"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileHover={{ x: 6 }}
+                  >
+                    <span className="skill-dot"></span>
+                    <span className="skill-text">{skill}</span>
+                  </motion.div>
                 ))}
               </div>
             </section>
