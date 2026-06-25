@@ -1,10 +1,10 @@
 # 3D Interactive Portfolio 🚀
 
-An immersive, premium 3D developer portfolio website built using React, Three.js, and React Three Fiber (R3F). The portfolio places the visitor inside an interactive 3D developer room/workspace where they can interact with physical objects to explore projects, credentials, resume, skills, and real-time GitHub activity.
+An immersive, premium 3D developer portfolio website built using **React**, **Three.js**, and **React Three Fiber (R3F)**. The portfolio places the visitor inside an interactive 3D developer room/workspace where they can interact with physical objects to explore projects, credentials, resume, skills, and real-time GitHub activity.
 
 ---
 
-## 🎨 Design & Theme
+## 🎨 Design & Theme System
 
 - **Aesthetic**: Premium dark-mode workspace using soft lighting, neon accent glows, and responsive glassmorphism overlays.
 - **Dynamic Theme Switcher**: 5 gorgeous pre-configured theme presets that instantly adjust the 3D scene's colors, ambient lighting, spotlight accents, fog, and HTML UI overlays:
@@ -21,7 +21,7 @@ An immersive, premium 3D developer portfolio website built using React, Three.js
 ## 🛠️ Tech Stack
 
 - **Framework**: React 19 + Vite 8
-- **3D Library**: Three.js
+- **3D Engine**: Three.js
 - **React 3D Renderer**: React Three Fiber (R3F)
 - **3D Helpers**: `@react-three/drei`
 - **Animations**: `framer-motion` (2D overlays) and Three.js Lerp (3D Camera navigation)
@@ -30,9 +30,117 @@ An immersive, premium 3D developer portfolio website built using React, Three.js
 
 ---
 
-## 📂 Project Folder Structure
+## 🏗️ Architectural System Design
 
-This project follows a component-driven routing architecture where each route dynamically changes the 3D canvas viewport and mounts a dedicated 2D overlay component:
+This project uses a unified architecture where **React Router** state acts as the single source of truth for both the 2D overlays and the 3D viewport. When a user clicks a navigation link or a 3D mesh, the route changes, triggering:
+1. **Camera Transitions**: The `CameraMover` component intercepts route changes and runs a smooth interpolation loop (`lerp`) using R3F's `useFrame` to position and rotate the camera.
+2. **2D Overlay Mounting**: React Router mounts the corresponding overlay page with smooth enter/exit animations handled by `framer-motion`.
+3. **Theme Synchronization**: The global `themeId` state is saved to `localStorage` and applied as a `data-theme` attribute on the HTML root element. This instantly swaps out CSS custom variables for the UI, while also propagating color variables down into R3F materials and lights.
+
+### 📊 System Architecture Diagram
+
+```mermaid
+graph TD
+    %% Box 1: Routing System
+    subgraph Routing ["Routing System"]
+        Router["React Router v7 (routes/index.jsx)"]
+    end
+
+    %% Box 2: Theme Engine
+    subgraph Theme_Engine ["Theme Engine"]
+        Theme["Theme State (App.jsx)"]
+        LS["LocalStorage ('portfolio-theme')"]
+        HTMLAttr["HTML root 'data-theme'"]
+    end
+
+    %% Box 3: Global UI Layout
+    subgraph Global_UI ["Global UI Elements"]
+        Nav["Navigation.jsx (Float Menu)"]
+        Set["Settings.jsx (Theme Selector)"]
+        Loader["Loader.jsx (Preloader)"]
+    end
+
+    %% Box 4: Routed 2D Overlays
+    subgraph Routed_Overlays ["Routed 2D Overlays"]
+        Home["Home.jsx (Intro Overlay)"]
+        Proj["Projects.jsx (List & Modals)"]
+        Certs["Certificates.jsx (List & Tile Toggle)"]
+        Resume["Resume.jsx (Experience & Tech Skills)"]
+        Git["Github.jsx (CRT Command Shell)"]
+        Skills["Skills.jsx (Categorized Grid)"]
+        Contact["Contact.jsx (Form & Social Links)"]
+    end
+
+    %% Box 5: 3D Canvas Core
+    subgraph Canvas_Core ["3D Canvas Core"]
+        CanvasComponent["Canvas Component (App.jsx)"]
+        Room["Room.jsx (Core Scene Wrapper)"]
+        Lights["Lights.jsx (Spotlights & Fog)"]
+        CameraMover["CameraMover.jsx (useFrame Lerp)"]
+    end
+
+    %% Box 6: 3D Interactive Meshes
+    subgraph Interactive_Meshes ["3D Interactive Meshes"]
+        Desk["Desk.jsx (Workstation Setup)"]
+        Laptop["Laptop.jsx (Drei &lt;Html&gt; Screen)"]
+        Bookshelf["Bookshelf.jsx (Shelves & Credentials)"]
+        WallFrames["WallFrames.jsx (Certificates)"]
+        Terminal["Terminal.jsx (CRT Screen)"]
+        Smartphone["ContactObject.jsx (Phone Model)"]
+    end
+
+    %% Box 7: External Integrations
+    subgraph External_Integrations ["External Integrations"]
+        GitAPI["GitHub REST API"]
+        W3Forms["Web3Forms API"]
+        Devicon["jsdelivr Devicon CDN"]
+    end
+
+    %% Routing & Overlay Bindings
+    Router -->|Mounts page overlay| Home
+    Router -->|Mounts page overlay| Proj
+    Router -->|Mounts page overlay| Certs
+    Router -->|Mounts page overlay| Resume
+    Router -->|Mounts page overlay| Git
+    Router -->|Mounts page overlay| Skills
+    Router -->|Mounts page overlay| Contact
+
+    %% Theme sync and propagation
+    Theme -->|Syncs| LS
+    Theme -->|Updates| HTMLAttr
+    HTMLAttr -->|Controls CSS theme variables| Global_UI
+    HTMLAttr -->|Controls CSS theme variables| Routed_Overlays
+    Theme -->|Configures light colors & intensity| Lights
+    Theme -->|Configures colors & glow materials| Room
+
+    %% 3D Scene Assembly
+    CanvasComponent --> Room
+    Room --> Lights
+    Room --> CameraMover
+    Room --> Desk
+    Room --> Laptop
+    Room --> Bookshelf
+    Room --> WallFrames
+    Room --> Terminal
+    Room --> Smartphone
+
+    %% Interactive camera trigger bindings
+    Router -->|Configures Target Position & FOV| CameraMover
+    Laptop -->|User Click: routes to /projects| Router
+    WallFrames -->|User Click: routes to /certificates| Router
+    Terminal -->|User Click: routes to /github| Router
+    Smartphone -->|User Click: routes to /contact| Router
+    Bookshelf -->|User Click: routes to /resume| Router
+
+    %% Dynamic Data bindings
+    Git -->|Queries user & repo data| GitAPI
+    Contact -->|Submits email payload| W3Forms
+    Skills -->|SkillLogo pulls SVGs| Devicon
+```
+
+---
+
+## 📂 Project Folder Structure
 
 ```text
 3d-portfolio/
@@ -53,21 +161,21 @@ This project follows a component-driven routing architecture where each route dy
 │   │   │   ├── Clipboard.jsx # Clipboard for Resume reading
 │   │   │   ├── Terminal.jsx  # Interactive CRT terminal for GitHub activity
 │   │   │   ├── ContactObject.jsx # Interactive 3D smartphone for messaging
-│   │   │   ├── CameraMover.jsx # Interpolates camera position, lookAt target, and FOV based on routing
-│   │   │   └── Lights.jsx    # Shadow-mapped studio lighting config
+│   │   │   └── CameraMover.jsx # Interpolates camera position, lookAt target, and FOV based on routing
 │   │   └── ui/               # Reusable 2D UI Components
 │   │       ├── Navigation.jsx# Glassmorphism overlay menu
 │   │       ├── Loader.jsx    # Preloader overlay with progress feedback
 │   │       ├── Settings.jsx  # Configuration dropdown for themes
 │   │       ├── Icons.jsx     # Reusable custom SVG icons
+│   │       ├── SkillLogo.jsx # [NEW] Fetches tech stack SVG logos dynamically from CDN
 │   │       └── ScrambleText.jsx# Digital scramble/decrypt text animation component
 │   ├── pages/                # Route components (2D HTML overlays)
 │   │   ├── Home.jsx          # Intro overlay (Overall room view)
 │   │   ├── Projects.jsx      # Project list & details modal
-│   │   ├── Certificates.jsx  # Certificate viewer gallery
-│   │   ├── Resume.jsx        # Online resume viewer & PDF download
+│   │   ├── Certificates.jsx  # Certificate viewer gallery with view style toggle
+│   │   ├── Resume.jsx        # Online resume viewer & PDF download (clean style)
 │   │   ├── Github.jsx        # Retro terminal shell querying GitHub API
-│   │   ├── Skills.jsx        # Skills visualization dashboard
+│   │   ├── Skills.jsx        # Categorized skills dashboard (list/tile layouts)
 │   │   └── Contact.jsx       # Contact form with validation and social links
 │   ├── routes/
 │   │   └── index.jsx         # React Router v7 routing configuration
@@ -78,6 +186,42 @@ This project follows a component-driven routing architecture where each route dy
 │   ├── index.css             # Unified CSS design system & custom properties
 │   └── main.jsx              # Application entrypoint
 ```
+
+---
+
+## ✨ Features & Recent Enhancements
+
+### 1. 3D Interactive Room
+- Built with custom geometries and lightmaps representing a developer's study room.
+- Dynamic environment maps, spotlights, and distance fog that change color schemes when themes are updated.
+- Smooth camera focal shifting on object selection.
+
+### 2. Multi-Layout Skills Dashboard (`Skills.jsx`)
+- **Categorization**: Skills are organized into functional groups (**Frontend, Backend, Databases, Frameworks**) and toggleable via a visual tab bar.
+- **View Toggle Layouts**: Added support for switching between:
+  - **List View**: Detailed, single-column vertical layout.
+  - **Tile View**: Space-saving dense grid representation.
+  - **Large Tile View**: Generous grid display utilizing larger icons.
+- **Progress Indicator Removal**: Replaced percentage-based progress bars with tech badges to emphasize clean layouts, focusing purely on skill names and logos.
+
+### 3. Dynamic Skill Badges (`SkillLogo.jsx`)
+- An dynamic logo fetcher that requests official SVG vectors from the **Devicon CDN** (via `jsdelivr`).
+- Includes built-in error boundaries that gracefully fall back to colored textual tags when an icon fails to load or does not exist in the Devicon catalog.
+
+### 4. Simplified Professional Resume (`Resume.jsx`)
+- Chronological timelines for experience (Quanby Solutions Inc., SORECO II) and education (Sorsogon State University, BNCHS).
+- Clean bullet-point indicators for technical infrastructure skills. All visual progress bar and completion-percentage elements have been removed to present a clean, professional recruiter layout.
+
+### 5. Configurable Certificates Gallery (`Certificates.jsx`)
+- **View Style Toggles**: Allows users to toggle between a clean **List View** showing issuers/IDs and a custom **Tile View** showing detailed certificate frames.
+- **Interactive Modals**: Clicking a certificate zooms the camera, launches celebratory confetti, and opens a simulated physical certificate sheet showing the recipient **ARVIN CATALBAS** with certificate metadata and signatures.
+
+### 6. Interactive Retro CRT Github Terminal (`Github.jsx`)
+- Interactive CRT screen mesh. Clicking it opens a retro terminal layout that displays mock commands and makes real-time requests to the GitHub REST API, listing your public repositories and project counts.
+
+### 7. smartphone messaging Contact Form (`Contact.jsx`)
+- Interactive smartphone 3D object on the desk that zooms to trigger the contact card.
+- Validated form with custom state checking connected to the **Web3Forms API** for email delivery, with demo failover support.
 
 ---
 
@@ -132,17 +276,3 @@ npm run dev
 ```bash
 npm run build
 ```
-
----
-
-## 📸 Core Features Implementation
-
-1. **3D Room Scene**: Created using custom geometries (desk, laptop, monitors, bookshelf, plants) stylized with metallic, matte, and emission shaders.
-2. **Interactive Laptop Screen**: Utilizes `@react-three/drei`'s `<Html transform>` component to render a scrollable, responsive HTML projects list directly onto the laptop monitor mesh.
-3. **Wall Certificate Gallery**: Picture frames mapped with certificate textures that expand to full screen using Framer Motion when clicked.
-4. **Interactive GitHub CRT Terminal**: A bulky retro computer monitor styled like a terminal screen that executes actual API requests and displays user profiles, repository counts, and latest projects using the GitHub REST API.
-5. **Interactive Smartphone**: A custom phone model displaying chat messages that prompts user interaction and links to the contact section.
-6. **Functional Contact Form**: Connected to the Web3Forms API with automatic validation, error handling, support for simulated demo fallback, and responsive UI feedback.
-7. **Skills Dashboard**: Visualizes technical capabilities in programming, frameworks, and infrastructure with custom-colored progress indicators.
-8. **Decryption Text Scramble**: Custom `<ScrambleText>` component that applies a digital scramble/decrypt animation to text on load and hover (used for the developer name on the home page).
-9. **Route-Based Camera Transitions**: The declarative `CameraMover` component listens to the active route from `react-router-dom` and triggers a smooth lerp to slide and rotate the camera towards target physical objects in the room.
