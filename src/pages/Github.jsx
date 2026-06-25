@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Cpu, GitBranch, Star, Users } from 'lucide-react';
 
@@ -7,15 +7,17 @@ export function Github() {
   const [loading, setLoading] = useState(false);
   const [profile, setProfile] = useState(null);
   const [repos, setRepos] = useState([]);
-  const [terminalLogs, setTerminalLogs] = useState([]);
+  const [terminalLogs, setTerminalLogs] = useState([
+    { text: 'System initialized. Connection established with GitHub.', type: 'sys', id: 'init' }
+  ]);
   const [inputValue, setInputValue] = useState('');
   const logsEndRef = useRef(null);
 
-  const addLog = (text, type = 'sys') => {
+  const addLog = useCallback((text, type = 'sys') => {
     setTerminalLogs((prev) => [...prev, { text, type, id: Date.now() + Math.random() }]);
-  };
+  }, []);
 
-  const fetchGitHubData = async (user) => {
+  const fetchGitHubData = useCallback(async (user) => {
     setLoading(true);
     addLog(`$ curl -s https://api.github.com/users/${user}`, 'cmd');
     
@@ -43,14 +45,15 @@ export function Github() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [addLog]);
 
   // Initial fetch
   useEffect(() => {
-    setTerminalLogs([]);
-    addLog('System initialized. Connection established with GitHub.', 'sys');
-    fetchGitHubData(username);
-  }, []);
+    const timer = setTimeout(() => {
+      fetchGitHubData(username);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [fetchGitHubData, username]);
 
   // Auto-scroll terminal
   useEffect(() => {

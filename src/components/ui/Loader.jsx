@@ -9,7 +9,10 @@ export function Loader() {
 
   useEffect(() => {
     if (active) {
-      setProgress(realProgress);
+      const frame = requestAnimationFrame(() => {
+        setProgress(realProgress);
+      });
+      return () => cancelAnimationFrame(frame);
     }
   }, [active, realProgress]);
 
@@ -30,11 +33,16 @@ export function Loader() {
 
   useEffect(() => {
     if (progress >= 100) {
-      setFadeOut(true);
+      const frame = requestAnimationFrame(() => {
+        setFadeOut(true);
+      });
       const timer = setTimeout(() => {
         setShouldRender(false);
       }, 600);
-      return () => clearTimeout(timer);
+      return () => {
+        cancelAnimationFrame(frame);
+        clearTimeout(timer);
+      };
     }
   }, [progress]);
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { useLocation } from 'react-router-dom';
 import * as THREE from 'three';
 
@@ -42,7 +42,6 @@ const routeConfigs = {
 };
 
 export function CameraMover() {
-  const { camera, size } = useThree();
   const location = useLocation();
   const currentRoute = location.pathname;
 
@@ -55,14 +54,19 @@ export function CameraMover() {
   useEffect(() => {
     targetPosition.current.set(...config.position);
     targetLookAt.current.set(...config.target);
-    
-    // Smoothly adjust FOV based on screen size / portrait aspect ratio
-    const isMobile = size.width < 768 || size.width < size.height;
-    camera.fov = config.fov + (isMobile ? 12 : 0);
-    camera.updateProjectionMatrix();
-  }, [currentRoute, camera, config, size.width, size.height]);
+  }, [config]);
 
   useFrame((state, delta) => {
+    const { camera, size } = state;
+
+    // Smoothly adjust FOV based on screen size / portrait aspect ratio
+    const isMobile = size.width < 768 || size.width < size.height;
+    const targetFov = config.fov + (isMobile ? 12 : 0);
+    if (camera.fov !== targetFov) {
+      camera.fov = targetFov;
+      camera.updateProjectionMatrix();
+    }
+
     // Clamp delta to avoid massive jumps when tab loses focus
     const clampDelta = Math.min(delta, 0.1);
     

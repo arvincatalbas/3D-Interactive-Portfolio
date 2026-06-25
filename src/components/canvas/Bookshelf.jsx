@@ -1,6 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// Helper to generate a book mesh
+function Book({ width = 0.06, height = 0.3, depth = 0.22, color = '#ff3366', pos, rot = [0, 0, 0] }) {
+  return (
+    <mesh position={pos} rotation={rot} castShadow>
+      <boxGeometry args={[width, height, depth]} />
+      <meshStandardMaterial color={color} roughness={0.6} />
+    </mesh>
+  );
+}
+
 export function Bookshelf() {
   const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
@@ -11,14 +21,6 @@ export function Bookshelf() {
     e.stopPropagation();
     navigate('/skills');
   };
-
-  // Helper to generate a book mesh
-  const Book = ({ width = 0.06, height = 0.3, depth = 0.22, color = '#ff3366', pos, rot = [0, 0, 0] }) => (
-    <mesh position={pos} rotation={rot} castShadow>
-      <boxGeometry args={[width, height, depth]} />
-      <meshStandardMaterial color={color} roughness={0.6} />
-    </mesh>
-  );
 
   return (
     <group 

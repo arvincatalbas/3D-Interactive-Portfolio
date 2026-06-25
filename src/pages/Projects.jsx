@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Monitor, Code } from 'lucide-react';
+import { ExternalLink, Monitor } from 'lucide-react';
 import { GithubIcon } from '../components/ui/Icons';
 
 const projects = [
