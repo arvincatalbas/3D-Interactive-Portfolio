@@ -33,7 +33,7 @@ const skillsData = [
   { name: 'Tailwind', category: 'framework', level: 79, icon: 'Tailwind', color: '#38bdf8', logo: 'tailwindcss' },
 ];
 
-export function Skills() {
+export function Tools() {
   const [activeTab, setActiveTab] = useState('all');
   const [viewStyle, setViewStyle] = useState('list'); // 'list' | 'tile' | 'large-tile'
 
@@ -53,9 +53,9 @@ export function Skills() {
       <div className="overlay-card glass panels-container skills-layout">
         <div className="panel-header">
           <Code2 className="panel-icon" size={24} />
-          <h2>My Skills</h2>
+          <h2>My Tools</h2>
         </div>
-        <p className="panel-subtitle">Technical proficiencies, programming languages, and IT infrastructure.</p>
+        <p className="panel-subtitle">Technical proficiencies, databases, programming languages, and framework.</p>
 
         {/* CONTROL ROW: CATEGORY FILTER TABS & VIEW STYLE TOGGLE */}
         <div className="skills-header-controls">
@@ -140,4 +140,4 @@ export function Skills() {
   );
 }
 
-export default Skills;
+export default Tools;

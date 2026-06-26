@@ -29,7 +29,7 @@ const routeConfigs = {
     target: [1.7, 1.25, 0.1],
     fov: 30
   },
-  '/skills': {
+  '/tools': {
     position: [1.2, 1.6, 0.8],
     target: [1.2, 1.1, -1.1],
     fov: 32

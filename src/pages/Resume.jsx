@@ -39,7 +39,8 @@ const skills = [
   'Networking & Infrastructure (TCP/IP, Cisco, Cabling)',
   'Operating Systems (Windows, Linux CLI, Admin)',
   'Programming (JS/React Native, Python, SQL)',
-  'Electrical Installation & Maintenance (NCII Certified)'
+  'Electrical Installation & Maintenance (NCII Certified)',
+  'IT Product Associate/Costing (Excel)'
 ];
 
 export function Resume() {

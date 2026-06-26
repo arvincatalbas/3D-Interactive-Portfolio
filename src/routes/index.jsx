@@ -4,7 +4,7 @@ import { Projects } from '../pages/Projects';
 import { Certificates } from '../pages/Certificates';
 import { Resume } from '../pages/Resume';
 import { Github } from '../pages/Github';
-import { Skills } from '../pages/Skills';
+import { Tools } from '../pages/Tools';
 import { Contact } from '../pages/Contact';
 import App from '../App';
 
@@ -34,8 +34,8 @@ export const router = createBrowserRouter([
         element: <Github />,
       },
       {
-        path: 'skills',
-        element: <Skills />,
+        path: 'tools',
+        element: <Tools />,
       },
       {
         path: 'contact',

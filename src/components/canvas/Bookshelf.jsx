@@ -19,7 +19,7 @@ export function Bookshelf() {
 
   const handleClick = (e) => {
     e.stopPropagation();
-    navigate('/skills');
+    navigate('/tools');
   };
 
   return (

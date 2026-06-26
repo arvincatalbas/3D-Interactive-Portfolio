@@ -7,7 +7,7 @@ export function Navigation() {
     { path: '/', label: 'Home', icon: Home },
     { path: '/projects', label: 'Projects', icon: Briefcase },
     { path: '/certificates', label: 'Certificates', icon: Award },
-    { path: '/skills', label: 'Skills', icon: Code2 },
+    { path: '/tools', label: 'Tools', icon: Code2 },
     { path: '/resume', label: 'Resume', icon: FileText },
     { path: '/github', label: 'GitHub', icon: GithubIcon },
     { path: '/contact', label: 'Contact', icon: Mail },

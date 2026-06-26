@@ -26,6 +26,14 @@ const projects = [
     tech: ['React Native', 'Expo', 'Typescript', 'Javascript'],
     github: 'https://github.com/arvincatalbas',
     live: 'https://github.com/arvincatalbas'
+  },
+  {
+    id: 4,
+    title: 'Music-App',
+    description: `The Music App is a cross-platform mobile application developed using React Native with Expo and TypeScript. It is designed to provide users with a modern and responsive interface for accessing music-related features while ensuring compatibility across Android and iOS devices. The project follows Expo's file- based routing system for simplified navigation and uses Tailwind CSS(NativeWind) for efficient and consistent styling.Its configuration files, including package.json, tsconfig.json, and tailwind.config.js, establish the application's dependencies, TypeScript support, and styling framework. Overall, the repository serves as a well-structured foundation for building a scalable, maintainable, and user-friendly mobile music application.`,
+    tech: ['React Native', 'Expo', 'Typescript', 'Javascript'],
+    github: 'https://github.com/arvincatalbas',
+    live: 'https://github.com/arvincatalbas'
   }
 ];
 
