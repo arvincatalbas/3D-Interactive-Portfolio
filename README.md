@@ -1,6 +1,6 @@
 # 3D Interactive Portfolio 🚀
 
-An immersive, premium 3D developer portfolio website built using **React**, **Three.js**, and **React Three Fiber (R3F)**. The portfolio places the visitor inside an interactive 3D developer room/workspace where they can interact with physical objects to explore projects, credentials, resume, skills, and real-time GitHub activity.
+An immersive, premium 3D developer portfolio website built using **React**, **Three.js**, and **React Three Fiber (R3F)**. The portfolio places the visitor inside an interactive 3D developer room/workspace where they can interact with physical objects to explore projects, credentials, resume, tools, and real-time GitHub activity.
 
 ---
 
@@ -67,7 +67,7 @@ graph TD
         Certs["Certificates.jsx (List & Tile Toggle)"]
         Resume["Resume.jsx (Experience & Tech Skills)"]
         Git["Github.jsx (CRT Command Shell)"]
-        Skills["Skills.jsx (Categorized Grid)"]
+        Tools["Tools.jsx (Categorized Grid)"]
         Contact["Contact.jsx (Form & Social Links)"]
     end
 
@@ -87,6 +87,7 @@ graph TD
         WallFrames["WallFrames.jsx (Certificates)"]
         Terminal["Terminal.jsx (CRT Screen)"]
         Smartphone["ContactObject.jsx (Phone Model)"]
+        Clipboard["Clipboard.jsx (Physical Clipboard)"]
     end
 
     %% Box 7: External Integrations
@@ -102,7 +103,7 @@ graph TD
     Router -->|Mounts page overlay| Certs
     Router -->|Mounts page overlay| Resume
     Router -->|Mounts page overlay| Git
-    Router -->|Mounts page overlay| Skills
+    Router -->|Mounts page overlay| Tools
     Router -->|Mounts page overlay| Contact
 
     %% Theme sync and propagation
@@ -123,6 +124,7 @@ graph TD
     Room --> WallFrames
     Room --> Terminal
     Room --> Smartphone
+    Room --> Clipboard
 
     %% Interactive camera trigger bindings
     Router -->|Configures Target Position & FOV| CameraMover
@@ -130,12 +132,13 @@ graph TD
     WallFrames -->|User Click: routes to /certificates| Router
     Terminal -->|User Click: routes to /github| Router
     Smartphone -->|User Click: routes to /contact| Router
-    Bookshelf -->|User Click: routes to /resume| Router
+    Bookshelf -->|User Click: routes to /tools| Router
+    Clipboard -->|User Click: routes to /resume| Router
 
     %% Dynamic Data bindings
     Git -->|Queries user & repo data| GitAPI
     Contact -->|Submits email payload| W3Forms
-    Skills -->|SkillLogo pulls SVGs| Devicon
+    Tools -->|SkillLogo pulls SVGs| Devicon
 ```
 
 ---
@@ -175,7 +178,7 @@ graph TD
 │   │   ├── Certificates.jsx  # Certificate viewer gallery with view style toggle
 │   │   ├── Resume.jsx        # Online resume viewer & PDF download (clean style)
 │   │   ├── Github.jsx        # Retro terminal shell querying GitHub API
-│   │   ├── Skills.jsx        # Categorized skills dashboard (list/tile layouts)
+│   │   ├── Tools.jsx         # Categorized tools dashboard (list/tile layouts)
 │   │   └── Contact.jsx       # Contact form with validation and social links
 │   ├── routes/
 │   │   └── index.jsx         # React Router v7 routing configuration
@@ -196,13 +199,13 @@ graph TD
 - Dynamic environment maps, spotlights, and distance fog that change color schemes when themes are updated.
 - Smooth camera focal shifting on object selection.
 
-### 2. Multi-Layout Skills Dashboard (`Skills.jsx`)
-- **Categorization**: Skills are organized into functional groups (**Frontend, Backend, Databases, Frameworks**) and toggleable via a visual tab bar.
+### 2. Multi-Layout Tools Dashboard (`Tools.jsx`)
+- **Categorization**: Tools are organized into functional groups (**Frontend, Backend, Databases, Frameworks**) and toggleable via a visual tab bar.
 - **View Toggle Layouts**: Added support for switching between:
   - **List View**: Detailed, single-column vertical layout.
   - **Tile View**: Space-saving dense grid representation.
   - **Large Tile View**: Generous grid display utilizing larger icons.
-- **Progress Indicator Removal**: Replaced percentage-based progress bars with tech badges to emphasize clean layouts, focusing purely on skill names and logos.
+- **Progress Indicator Removal**: Replaced percentage-based progress bars with tech badges to emphasize clean layouts, focusing purely on tool names and logos.
 
 ### 3. Dynamic Skill Badges (`SkillLogo.jsx`)
 - An dynamic logo fetcher that requests official SVG vectors from the **Devicon CDN** (via `jsdelivr`).
