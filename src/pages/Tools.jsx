@@ -13,24 +13,25 @@ const categories = [
 
 const skillsData = [
   // Frontend
-  { name: 'JavaScript', category: ['frontend', 'backend'], level: 85, icon: 'JS', color: '#f7df1e', logo: 'javascript' },
-  { name: 'TypeScript', category: 'frontend', level: 78, icon: 'TS', color: '#3178c6', logo: 'typescript' },
-  { name: 'HTML5', category: 'frontend', level: 90, icon: 'HTML', color: '#e34f26', logo: 'html5' },
-  { name: 'CSS3', category: 'frontend', level: 90, icon: 'CSS', color: '#1572b6', logo: 'css3' },
+  { name: 'JavaScript', category: ['frontend', 'backend'], icon: 'JS', color: '#f7df1e', logo: 'javascript' },
+  { name: 'TypeScript', category: 'frontend', icon: 'TS', color: '#3178c6', logo: 'typescript' },
+  { name: 'HTML5', category: 'frontend', icon: 'HTML', color: '#e34f26', logo: 'html5' },
+  { name: 'CSS3', category: 'frontend', icon: 'CSS', color: '#1572b6', logo: 'css3' },
   // Backend
-  { name: 'PHP', category: 'backend', level: 76, icon: 'PHP', color: '#777bb4', logo: 'php' },
-  { name: 'Node.js', category: 'backend', level: 85, icon: 'Node.js', color: '#04f244ff', logo: 'NodeJS' },
+  { name: 'PHP', category: 'backend', icon: 'PHP', color: '#777bb4', logo: 'php' },
+  { name: 'Node.js', category: 'backend', icon: 'Node.js', color: '#04f244ff', logo: 'NodeJS' },
+  { name: 'Python', category: 'backend', icon: 'Python', color: '#073e78ff', logo: 'python'},
 
   // Databases
-  { name: 'SQL', category: 'database', level: 72, icon: 'SQL', color: '#00758f', logo: 'mysql' },
-  { name: 'PostgreSQL', category: 'database', level: 78, icon: 'PG', color: '#336791', logo: 'postgresql' },
+  { name: 'SQL', category: 'database', icon: 'SQL', color: '#00758f', logo: 'mysql' },
+  { name: 'PostgreSQL', category: 'database', icon: 'PG', color: '#336791', logo: 'postgresql' },
 
   // Frameworks
-  { name: 'React', category: 'framework', level: 84, icon: 'React', color: '#61dafb', logo: 'react' },
-  { name: 'React Native', category: 'framework', level: 80, icon: 'Native', color: '#00d2ff', logo: 'react' },
-  { name: 'Three.js / R3F', category: 'framework', level: 75, icon: '3D', color: '#ff007f', logo: 'threejs' },
-  { name: 'Expo', category: 'framework', level: 82, icon: 'Expo', color: '#ffffff', logo: 'expo' },
-  { name: 'Tailwind', category: 'framework', level: 79, icon: 'Tailwind', color: '#38bdf8', logo: 'tailwindcss' },
+  { name: 'React', category: 'framework', icon: 'React', color: '#61dafb', logo: 'react' },
+  { name: 'React Native', category: 'framework', icon: 'Native', color: '#00d2ff', logo: 'react' },
+  { name: 'Three.js / R3F', category: 'framework', icon: '3D', color: '#ff007f', logo: 'threejs' },
+  { name: 'Expo', category: 'framework', icon: 'Expo', color: '#ffffff', logo: 'expo' },
+  { name: 'Tailwind', category: 'framework', icon: 'Tailwind', color: '#38bdf8', logo: 'tailwindcss' },
 ];
 
 export function Tools() {

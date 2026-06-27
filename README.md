@@ -64,7 +64,7 @@ graph TD
     subgraph Routed_Overlays ["Routed 2D Overlays"]
         Home["Home.jsx (Intro Overlay)"]
         Proj["Projects.jsx (List & Modals)"]
-        Certs["Certificates.jsx (List & Tile Toggle)"]
+        Certs["Certificates.jsx (Categorized List & Tile Toggle)"]
         Resume["Resume.jsx (Experience & Tech Skills)"]
         Git["Github.jsx (CRT Command Shell)"]
         Tools["Tools.jsx (Categorized Grid)"]
@@ -175,7 +175,7 @@ graph TD
 │   ├── pages/                # Route components (2D HTML overlays)
 │   │   ├── Home.jsx          # Intro overlay (Overall room view)
 │   │   ├── Projects.jsx      # Project list & details modal
-│   │   ├── Certificates.jsx  # Certificate viewer gallery with view style toggle
+│   │   ├── Certificates.jsx  # Categorized certificate viewer gallery with view style toggle
 │   │   ├── Resume.jsx        # Online resume viewer & PDF download (clean style)
 │   │   ├── Github.jsx        # Retro terminal shell querying GitHub API
 │   │   ├── Tools.jsx         # Categorized tools dashboard (list/tile layouts)
@@ -216,6 +216,7 @@ graph TD
 - Clean bullet-point indicators for technical infrastructure skills. All visual progress bar and completion-percentage elements have been removed to present a clean, professional recruiter layout.
 
 ### 5. Configurable Certificates Gallery (`Certificates.jsx`)
+- **Categorization**: Certifications are organized into specific categories (**NCII**, **Anthropic**, **Cisco Networking Academy**, and **Diploma/School**) using a clean, streamlined menu layout.
 - **View Style Toggles**: Allows users to toggle between a clean **List View** showing issuers/IDs and a custom **Tile View** showing detailed certificate frames.
 - **Interactive Modals**: Clicking a certificate zooms the camera, launches celebratory confetti, and opens a simulated physical certificate sheet showing the recipient **ARVIN CATALBAS** with certificate metadata and signatures.
 

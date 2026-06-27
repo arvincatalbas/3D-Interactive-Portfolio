@@ -14,6 +14,8 @@
   
   --primary: #00ffcc;
   --primary-glow: rgba(0, 255, 204, 0.15);
+  --primary-bg-alpha: rgba(0, 255, 204, 0.08);
+  --primary-border-alpha: rgba(0, 255, 204, 0.2);
   --secondary: #ff00ff;
   --secondary-glow: rgba(255, 0, 255, 0.15);
   
@@ -611,9 +613,14 @@ h4 {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   color: var(--primary);
-  background: rgba(0, 255, 204, 0.05);
-  padding: 1px 4px;
-  border-radius: 3px;
+  background: var(--primary-bg-alpha);
+  border: 1px solid var(--primary-border-alpha);
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .cert-actions {
@@ -645,10 +652,71 @@ h4 {
 /* Certificate Views & Layouts */
 .cert-header-controls {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
   gap: 12px;
+}
+
+.cert-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+@supports (scrollbar-width: none) {
+  .cert-tabs {
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+.cert-tabs::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.cert-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+}
+
+.cert-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.cert-tab-btn.active {
+  background: rgba(0, 255, 204, 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+}
+
+.cert-header-controls .cert-tabs {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .cert-header-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .certs-list-container {
@@ -662,40 +730,57 @@ h4 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 14px;
+  align-content: start;
 }
 
 .certs-list-container.tile .cert-card {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px 16px;
+  padding: 24px 20px;
   height: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 16px;
 }
 
 .certs-list-container.tile .cert-status {
   margin-right: 0;
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 
 .certs-list-container.tile .cert-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 12px;
+  gap: 12px;
   width: 100%;
+  margin-bottom: 0;
 }
 
 .certs-list-container.tile .cert-info h4 {
   font-size: 0.88rem;
   line-height: 1.35;
-  margin-bottom: 6px;
+  margin-bottom: 0;
   text-align: center;
+  min-height: 2.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.certs-list-container.tile .cert-separator {
+  display: none;
 }
 
 .certs-list-container.tile .cert-issuer {
   font-size: 0.75rem;
-  margin-bottom: 6px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-height: 2.5rem;
+  justify-content: center;
 }
 
 .certs-list-container.tile .cert-actions {
@@ -1911,6 +1996,8 @@ h4 {
 [data-theme="cyberpunk"] {
   --primary: #00ffcc;
   --primary-glow: rgba(0, 255, 204, 0.15);
+  --primary-bg-alpha: rgba(0, 255, 204, 0.08);
+  --primary-border-alpha: rgba(0, 255, 204, 0.2);
   --secondary: #ff00ff;
   --secondary-glow: rgba(255, 0, 255, 0.15);
   --bg-dark: #0e0f14;
@@ -1922,6 +2009,8 @@ h4 {
 [data-theme="sunset"] {
   --primary: #ff5e62;
   --primary-glow: rgba(255, 94, 98, 0.15);
+  --primary-bg-alpha: rgba(255, 94, 98, 0.08);
+  --primary-border-alpha: rgba(255, 94, 98, 0.2);
   --secondary: #ff9966;
   --secondary-glow: rgba(255, 153, 102, 0.15);
   --bg-dark: #140e17;
@@ -1933,6 +2022,8 @@ h4 {
 [data-theme="ocean"] {
   --primary: #00d2ff;
   --primary-glow: rgba(0, 210, 255, 0.15);
+  --primary-bg-alpha: rgba(0, 210, 255, 0.08);
+  --primary-border-alpha: rgba(0, 210, 255, 0.2);
   --secondary: #0066ff;
   --secondary-glow: rgba(0, 102, 255, 0.15);
   --bg-dark: #0b132b;
@@ -1944,6 +2035,8 @@ h4 {
 [data-theme="amber"] {
   --primary: #ffb703;
   --primary-glow: rgba(255, 183, 3, 0.15);
+  --primary-bg-alpha: rgba(255, 183, 3, 0.08);
+  --primary-border-alpha: rgba(255, 183, 3, 0.2);
   --secondary: #fb8500;
   --secondary-glow: rgba(251, 133, 0, 0.15);
   --bg-dark: #14110f;
@@ -1955,6 +2048,8 @@ h4 {
 [data-theme="tokyo"] {
   --primary: #9d4edd;
   --primary-glow: rgba(157, 78, 221, 0.15);
+  --primary-bg-alpha: rgba(157, 78, 221, 0.08);
+  --primary-border-alpha: rgba(157, 78, 221, 0.2);
   --secondary: #00f5ff;
   --secondary-glow: rgba(0, 245, 255, 0.15);
   --bg-dark: #0f0c1b;

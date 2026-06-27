@@ -1,7 +1,15 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, ShieldCheck, X, Eye, List, Grid, LayoutGrid } from 'lucide-react';
+import { Award, ShieldCheck, X, Eye, List, Grid } from 'lucide-react';
 import confetti from 'canvas-confetti';
+
+const categories = [
+  { id: 'all', label: 'All' },
+  { id: 'ncii', label: 'NCII' },
+  { id: 'anthropic', label: 'Anthropic' },
+  { id: 'cisco', label: 'Cisco Networking Academy' },
+  { id: 'school', label: 'Diploma/School' }
+];
 
 const certificates = [
   {
@@ -11,6 +19,7 @@ const certificates = [
     date: 'Certified',
     credentialId: '17056202009445',
     color: '#ffaa00',
+    category: 'ncii',
     pdfUrl: '/EIM NCll.pdf'
   },
   {
@@ -20,6 +29,7 @@ const certificates = [
     date: 'Course Certified',
     credentialId: 'CISCO-JS-ESS1',
     color: '#00e5ff',
+    category: 'cisco',
     pdfUrl: '/JavaScript_Essentials_1_certificate_arvin9999990-gmail-com_925cbfb1-7b89-4611-94a7-4a9246ac0080.pdf'
   },
   {
@@ -29,6 +39,7 @@ const certificates = [
     date: 'Certified',
     credentialId: 'CLAUDE-ACTION-101',
     color: '#ff007f',
+    category: 'anthropic',
     pdfUrl: '/certificate-eqyf6r2yd873-1775453081.pdf'
   },
   {
@@ -38,6 +49,7 @@ const certificates = [
     date: 'Course Certified',
     credentialId: 'CISCO-PKT-TRACER',
     color: '#a855f7',
+    category: 'cisco',
     pdfUrl: '/Getting_Started_with_Cisco_Packet_Tracer_certificate_arvin9999990-gmail-com_e0559a8c-4f7f-4dc0-b058-05610f19ede9.pdf'
   },
   {
@@ -47,6 +59,7 @@ const certificates = [
     date: 'Course certified',
     credentialId: 'CISCO-APPLY-AI',
     color: '#00ff736e',
+    category: 'cisco',
     pdfUrl: '/Apply_AI-_Update_Your_Resume_certificate_arvin9999990-gmail-com_1701a7a9-f551-4890-a8e1-7601b9e6a0d4.pdf'
   },
   {
@@ -56,6 +69,7 @@ const certificates = [
     date: 'Course Certified',
     credentialId: '##',
     color: '#3476a6',
+    category: 'school',
     pdfUrl: '/c92695f9-f595-4f50-a78a-236cee432dd8.jpg'
   },
   {
@@ -65,6 +79,7 @@ const certificates = [
     date: 'Course Certified',
     credentialId: 'Claude-101',
     color: '#04f8e8b9',
+    category: 'anthropic',
     pdfUrl: '/certificate-aq4wbrdpreua-1776493635.pdf'
   },
   {
@@ -74,6 +89,7 @@ const certificates = [
     date: 'Course Certified',
     credentialId: 'CISCO-NET-BASICS',
     color: '#ec0dc3c3',
+    category: 'cisco',
     pdfUrl: '/Networking_Basics_certificate_arvin9999990-gmail-com_4399dd47-a990-4af2-81fd-1a8f5129959d.pdf'
   },
   {
@@ -83,6 +99,7 @@ const certificates = [
     date: 'Course Certified',
     credentialId: 'Work-immersion-EIM',
     color: '#f6fbfbff',
+    category: 'school',
     pdfUrl: '/ad0fdf18-9ec1-4a83-9d39-1a43ba0c241b.jpg'
   },
   {
@@ -92,6 +109,7 @@ const certificates = [
     date: 'Course Certified',
     credentialId: '8908185',
     color: '#e27e0457',
+    category: 'school',
     pdfUrl: '/IMG_20260618_142810.jpg'
   }
 ];
@@ -99,6 +117,7 @@ const certificates = [
 export function Certificates() {
   const [selectedCert, setSelectedCert] = useState(null);
   const [viewStyle, setViewStyle] = useState('list'); // 'list' | 'tile' 
+  const [activeTab, setActiveTab] = useState('all');
 
   const handleOpenCert = (cert) => {
     setSelectedCert(cert);
@@ -109,6 +128,10 @@ export function Certificates() {
       origin: { y: 0.8 }
     });
   };
+
+  const filteredCertificates = certificates.filter(
+    (cert) => activeTab === 'all' || cert.category === activeTab
+  );
 
   return (
     <motion.div
@@ -125,8 +148,22 @@ export function Certificates() {
         </div>
         <p className="panel-subtitle">My verified credentials and training courses.</p>
 
-        {/* VIEW STYLE TOGGLE */}
+        {/* CONTROL ROW: CATEGORY FILTER TABS & VIEW STYLE TOGGLE */}
         <div className="cert-header-controls">
+          <div className="cert-tabs">
+            {categories.map((tab) => {
+              return (
+                <button
+                  key={tab.id}
+                  className={`cert-tab-btn ${activeTab === tab.id ? 'active' : ''}`}
+                  onClick={() => setActiveTab(tab.id)}
+                >
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
           <div className="view-style-toggle">
             <button 
               className={`view-btn ${viewStyle === 'list' ? 'active' : ''}`} 
@@ -146,7 +183,7 @@ export function Certificates() {
         </div>
 
         <div className={`items-list scrollable certs-list-container ${viewStyle}`}>
-          {certificates.map((cert) => {
+          {filteredCertificates.map((cert) => {
             const isLarge = viewStyle === 'large';
             return (
               <motion.div
@@ -201,8 +238,12 @@ export function Certificates() {
                       <ShieldCheck color={cert.color} size={20} />
                     </div>
                     <div className="cert-info">
-                      <h4>{cert.title}</h4>
-                      <p className="cert-issuer">{cert.issuer} • <span className="date">{cert.date}</span></p>
+                       <h4>{cert.title}</h4>
+                      <p className="cert-issuer">
+                        <span className="issuer-name">{cert.issuer}</span>
+                        <span className="cert-separator"> • </span>
+                        <span className="date">{cert.date}</span>
+                      </p>
                       <code className="cert-id">ID: {cert.credentialId}</code>
                     </div>
                     <div className="cert-actions" onClick={(e) => e.stopPropagation()}>
