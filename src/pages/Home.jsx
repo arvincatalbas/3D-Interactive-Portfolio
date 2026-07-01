@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { GithubIcon, LinkedinIcon, FacebookIcon } from '../components/ui/Icons';
+import { GithubIcon, LinkedinIcon, FacebookIcon, InstagramIcon } from '../components/ui/Icons';
 import { ScrambleText } from '../components/ui/ScrambleText';
 
 export function Home() {
@@ -25,7 +25,7 @@ export function Home() {
         <h3>I'm a Freshgraduate from Sorsogon State University - Bulan Campus</h3>
         
         <p className="bio">
-          Driven and detail-oriented Information Technology graduate specializing in network infrastructure, device configuration, and software development. Certified in Electrical Installation & Maintenance (EIM NCII).
+          Driven and detail-oriented Information Technology graduate specializing in network infrastructure, device configuration, and Web Development. Certified in Electrical Installation & Maintenance (EIM NCII).
         </p>
 
         <div className="instruction-box">
@@ -46,6 +46,9 @@ export function Home() {
         <div className="social-links">
           <a href="https://facebook.com/senemorph" target="_blank" rel="noreferrer" title="Facebook">
             <FacebookIcon size={20} />
+          </a>
+          <a href="https://instagram.com/ar.vinnn09" target="_blank" rel="noreferrer" title="Instagram">
+            <InstagramIcon size={20} />
           </a>
           <a href="https://github.com/arvincatalbas" target="_blank" rel="noreferrer" title="GitHub">
             <GithubIcon size={20} />

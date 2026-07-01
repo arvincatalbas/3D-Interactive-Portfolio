@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
-import { FacebookIcon, GithubIcon, LinkedinIcon } from '../components/ui/Icons';
+import { FacebookIcon, GithubIcon, LinkedinIcon, InstagramIcon } from '../components/ui/Icons';
 
 export function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -315,6 +315,9 @@ export function Contact() {
                   <div className="social-links contact-socials-list">
                     <a href="https://facebook.com/senemorph" target="_blank" rel="noreferrer" title="Facebook">
                       <FacebookIcon size={18} />
+                    </a>
+                    <a href="https://instagram.com/ar.vinnn09" target="_blank" rel="noreferrer" title="Instagram">
+                      <InstagramIcon size={18} />
                     </a>
                     <a href="https://github.com/arvincatalbas" target="_blank" rel="noreferrer" title="GitHub">
                       <GithubIcon size={18} />

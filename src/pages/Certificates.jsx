@@ -111,6 +111,16 @@ const certificates = [
     color: '#e27e0457',
     category: 'school',
     pdfUrl: '/IMG_20260618_142810.jpg'
+  },
+  {
+    id: 11,
+    title: 'Operating Systems Basics',
+    issuer: 'Cisco Networking Academy',
+    date: 'Course Certified',
+    credentialId: 'CISCO-OS-BASICS',
+    color: '#2200ff6e',
+    category: 'cisco',
+    pdfUrl: '/Operating_Systems_Basics_certificate_arvin9999990-gmail-com_0d12c590-ec22-412d-a095-4f66378d4092.pdf'
   }
 ];
 
