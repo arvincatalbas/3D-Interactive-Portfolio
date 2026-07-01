@@ -1,5 +1,7 @@
 # 3D Interactive Portfolio 🚀
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://3-d-interactive-portfolio-zeta.vercel.app/)
+
 An immersive, premium 3D developer portfolio website built using **React**, **Three.js**, and **React Three Fiber (R3F)**. The portfolio places the visitor inside an interactive 3D developer room/workspace where they can interact with physical objects to explore projects, credentials, resume, tools, and real-time GitHub activity.
 
 ---
@@ -169,11 +171,11 @@ graph TD
 │   │       ├── Navigation.jsx# Glassmorphism overlay menu
 │   │       ├── Loader.jsx    # Preloader overlay with progress feedback
 │   │       ├── Settings.jsx  # Configuration dropdown for themes
-│   │       ├── Icons.jsx     # Reusable custom SVG icons
-│   │       ├── SkillLogo.jsx # [NEW] Fetches tech stack SVG logos dynamically from CDN
+│   │       ├── Icons.jsx     # Reusable custom SVG icons (Facebook, Github, Linkedin, Instagram)
+│   │       ├── SkillLogo.jsx # Fetches tech stack SVG logos dynamically from CDN
 │   │       └── ScrambleText.jsx# Digital scramble/decrypt text animation component
 │   ├── pages/                # Route components (2D HTML overlays)
-│   │   ├── Home.jsx          # Intro overlay (Overall room view)
+│   │   ├── Home.jsx          # Intro overlay (Overall room view with social integration)
 │   │   ├── Projects.jsx      # Project list & details modal
 │   │   ├── Certificates.jsx  # Categorized certificate viewer gallery with view style toggle
 │   │   ├── Resume.jsx        # Online resume viewer & PDF download (clean style)
@@ -211,21 +213,24 @@ graph TD
 - An dynamic logo fetcher that requests official SVG vectors from the **Devicon CDN** (via `jsdelivr`).
 - Includes built-in error boundaries that gracefully fall back to colored textual tags when an icon fails to load or does not exist in the Devicon catalog.
 
-### 4. Simplified Professional Resume (`Resume.jsx`)
+### 4. Professional Resume Layout & PDF (`Resume.jsx`)
 - Chronological timelines for experience (Quanby Solutions Inc., SORECO II) and education (Sorsogon State University, BNCHS).
 - Clean bullet-point indicators for technical infrastructure skills. All visual progress bar and completion-percentage elements have been removed to present a clean, professional recruiter layout.
+- Directly integrated with the latest PDF format download (`RESUME v.3.2.pdf`).
 
 ### 5. Configurable Certificates Gallery (`Certificates.jsx`)
 - **Categorization**: Certifications are organized into specific categories (**NCII**, **Anthropic**, **Cisco Networking Academy**, and **Diploma/School**) using a clean, streamlined menu layout.
+- **New Certificates**: Includes newly added certifications such as **Operating Systems Basics** from Cisco Networking Academy.
 - **View Style Toggles**: Allows users to toggle between a clean **List View** showing issuers/IDs and a custom **Tile View** showing detailed certificate frames.
 - **Interactive Modals**: Clicking a certificate zooms the camera, launches celebratory confetti, and opens a simulated physical certificate sheet showing the recipient **ARVIN CATALBAS** with certificate metadata and signatures.
 
 ### 6. Interactive Retro CRT Github Terminal (`Github.jsx`)
-- Interactive CRT screen mesh. Clicking it opens a retro terminal layout that displays mock commands and makes real-time requests to the GitHub REST API, listing your public repositories and project counts.
+- Interactive CRT screen mesh. Clicking it opens a retro terminal layout that displays mock commands and makes real-time requests to the GitHub REST API, listing public repositories and project counts.
 
-### 7. smartphone messaging Contact Form (`Contact.jsx`)
+### 7. Smartphone Contact Form & Socials (`Contact.jsx`)
 - Interactive smartphone 3D object on the desk that zooms to trigger the contact card.
 - Validated form with custom state checking connected to the **Web3Forms API** for email delivery, with demo failover support.
+- Fully integrated social networks: **Facebook**, **Instagram** (recently integrated profile link), **GitHub**, and **LinkedIn**.
 
 ---
 
