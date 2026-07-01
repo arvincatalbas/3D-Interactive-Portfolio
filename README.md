@@ -1,6 +1,6 @@
 # 3D Interactive Portfolio 🚀
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://3-d-interactive-portfolio-zeta.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://3-d-interactive-portfolio-inky.vercel.app/)
 
 An immersive, premium 3D developer portfolio website built using **React**, **Three.js**, and **React Three Fiber (R3F)**. The portfolio places the visitor inside an interactive 3D developer room/workspace where they can interact with physical objects to explore projects, credentials, resume, tools, and real-time GitHub activity.
 
